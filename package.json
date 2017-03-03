@@ -1,0 +1,25 @@
+{
+  "name": "GoodBoysInc",
+  "version": "1.0.0",
+  "description": "yeahhhh boiiiiiiiiiiiii",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e css,ejs,js,json --watch app --ignore feedback.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaSUB/GoodBoysInc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaSUB/GoodBoysInc/issues"
+  },
+  "homepage": "https://github.com/MaSUB/GoodBoysInc#readme",
+  "dependencies": {
+    "express": "^4.15.0",
+    "watson-developer-cloud": "^2.23.1"
+  }
+}
