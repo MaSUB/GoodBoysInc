@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> <%= siteTitle %>--<%= pageTitle %></title>
+    </head>
+    <body>
+        <button id=&quot;sign-in-with-twitter&quot;>Sign in with Twitter!</button>
+        <script>
+            $(function() {
+                $(&quot;#sign-in-with-twitter&quot;).on(&quot;click&quot;, function() {
+                    window.location.href = &quot;<some domain>/request-token&quot;;
+                });
+            });
+        </script>
+        <script src=&quot;https://code.jquery.com/jquery-2.1.4.min.js&quot;></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </body>
+</html>
