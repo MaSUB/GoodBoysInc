@@ -4,7 +4,7 @@
   "description": "yeahhhh boiiiiiiiiiiiii",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon app/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,8 @@
   "homepage": "https://github.com/MaSUB/GoodBoysInc#readme",
   "dependencies": {
     "express": "^4.15.0",
+    "node-twitter-api": "^1.8.0",
+    "reload": "^1.1.1",
     "watson-developer-cloud": "^2.23.1"
   }
 }
