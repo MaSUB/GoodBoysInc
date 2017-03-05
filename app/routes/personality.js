@@ -1,5 +1,5 @@
 var express = require('express');
-var app = express();
+var router = express.Router();
 
 var PersonalityInsightsV3 = require('watson-developer-cloud/personality-insights/v3');
 var personality_insights = new PersonalityInsightsV3({
@@ -10,7 +10,7 @@ var personality_insights = new PersonalityInsightsV3({
 
 var params = {
   // Get the content items from the JSON file.
-  content_items: require('./profile.json').contentItems,
+  content_items: require('./../data/profile.json').contentItems,
   consumption_preferences: true,
   raw_scores: true,
   headers: {
@@ -30,10 +30,10 @@ personality_insights.profile(params, function(error, response) {
   }
 );
 
-app.get('/', function(req, res) {
-  res.send('<h1>Roux Academy Meetups</h1>');
+router.get('/personality', function(req, res) {
+  res.send( '<script src="/reload/reload.js/"></script>' +
+            '<h1>Roux Academy Meetups</h1>' +
+            '<h2>gayer/h2>');
 });
 
-var server = app.listen(3000, function() {
-  console.log('Listening on port 3000');
-});
+module.exports = router;
