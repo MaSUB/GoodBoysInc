@@ -1,3 +1,4 @@
+var cookieSession = require('cookie-session');
 var express = require('express');
 var reload = require('reload');
 var app = express();
@@ -15,6 +16,10 @@ app.use(express.static('app/public'));
 app.use(require('./routes/index'));
 app.use(require('./routes/personality'));
 app.use(require('./routes/twitter'));
+app.use(cookieSession({
+  name: 'session',
+  keys:['key1','key2']
+}));
 
 var server = app.listen(app.get('port'), function() {
   console.log('Listening on port ' + app.get('port'));
