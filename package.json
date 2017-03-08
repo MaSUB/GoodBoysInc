@@ -20,6 +20,7 @@
   "homepage": "https://github.com/MaSUB/GoodBoysInc#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "client-sessions": "^0.7.0",
     "cookie-session": "^2.0.0-beta.1",
     "ejs": "^2.5.6",
     "express": "^4.15.0",

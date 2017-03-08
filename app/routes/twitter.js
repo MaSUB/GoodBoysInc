@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var session = require('client-sessions');
 var OAuth = require('oauth').OAuth
   , oauth = new OAuth(
       "https://api.twitter.com/oauth/request_token",
@@ -10,6 +11,13 @@ var OAuth = require('oauth').OAuth
       "http://localhost:3000/auth/twitter/callback",
       "HMAC-SHA1"
     );
+
+router.use(session({
+  cookieName: 'session',
+  secret:"randomness",
+  duration: 30 * 60 * 1000,
+  activeDuratoin: 5 * 60 * 1000,
+}));
 
 router.get('/twitter', function(req, res) {
 
