@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Twitter = require('twitter');
 var session = require('client-sessions');
 var OAuth = require('oauth').OAuth
   , oauth = new OAuth(
@@ -54,11 +55,29 @@ router.get('/twitter', function(req, res) {
             res.send("Authentication Failure!");
           }
           else {
-            req.session.oauth.access_token = oauth_access_token;
             req.session.oauth.access_token_secret = oauth_access_token_secret;
+            req.session.oauth.access_token = oauth_access_token;
             console.log(results, req.session.oauth);
             res.send("Authentication Successful");
+
+            var client = new Twitter ({
+
+              consumer_key:'FvXUtpAcjxQbA7Pljd7BnR4nU',
+              consumer_secret:'hpnmzytHudEjtX5LSyWRAY6uqcwuUe06PZSLSeryt8NhTPrR3K',
+              access_token: req.session.oauth.access_token,
+              access_token_secret: req.session.oauth.access_token
+            });
+
+            client.get('favorites/list', function(error, tweets, response) {
+  if(error) throw error;
+  console.log(tweets);  // The favorites.
+  console.log(response);  // Raw response object.
+});
             // res.redirect('/'); // You might actually want to redirect!
+            //res.render('twitter', {
+              //pageTitle:'Twitter',
+              //pageID: 'twitter'
+            //});;
           }
         }
       );
@@ -68,11 +87,6 @@ router.get('/twitter', function(req, res) {
     }
 
   });
-  //res.render('twitter', {
-
-    //pageTitle:'Twitter',
-    //pageID: 'twitter'
-//  });;
 });
 
 module.exports = router;
