@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Twitter = require('twitter');
+var Twit = require('twit');
 var session = require('client-sessions');
 var OAuth = require('oauth').OAuth
   , oauth = new OAuth(
@@ -60,27 +60,31 @@ router.get('/twitter', function(req, res) {
             console.log(results, req.session.oauth);
             res.send("Authentication Successful");
 
-            var client = new Twitter ({
+            var client = new Twit ({
 
               consumer_key:'FvXUtpAcjxQbA7Pljd7BnR4nU',
               consumer_secret:'hpnmzytHudEjtX5LSyWRAY6uqcwuUe06PZSLSeryt8NhTPrR3K',
               access_token: req.session.oauth.access_token,
-              access_token_secret: req.session.oauth.access_token
+              access_token_secret: req.session.oauth.access_token_secret,
+              timeout_ms: 60*1000
             });
 
-            client.get('favorites/list', function(error, tweets, response) {
-  if(error) throw error;
-  console.log(tweets);  // The favorites.
-  console.log(response);  // Raw response object.
-});
+            client.get('search/tweets', {q: 'I since:2011-07-11', count: 100},
+            function(err,data,response){
+              if(err){
+                console.log("no");
+              }
+              else{
+                console.log(data);
+              }
+            });
             // res.redirect('/'); // You might actually want to redirect!
             //res.render('twitter', {
               //pageTitle:'Twitter',
               //pageID: 'twitter'
             //});;
           }
-        }
-      );
+        });
     }
     else {
       res.redirect('/login'); // Redirect to login page
