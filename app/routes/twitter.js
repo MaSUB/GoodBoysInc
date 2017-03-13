@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var Twit = require('twit');
-var session = require('client-sessions');
 var OAuth = require('oauth').OAuth
   , oauth = new OAuth(
       "https://api.twitter.com/oauth/request_token",
@@ -12,13 +11,6 @@ var OAuth = require('oauth').OAuth
       "http://localhost:3000/auth/twitter/callback",
       "HMAC-SHA1"
     );
-
-router.use(session({
-  cookieName: 'session',
-  secret:"randomness",
-  duration: 30 * 60 * 1000,
-  activeDuratoin: 5 * 60 * 1000,
-}));
 
 router.get('/twitter', function(req, res) {
 
@@ -58,31 +50,7 @@ router.get('/twitter', function(req, res) {
             req.session.oauth.access_token_secret = oauth_access_token_secret;
             req.session.oauth.access_token = oauth_access_token;
             console.log(results, req.session.oauth);
-            res.send("Authentication Successful");
-
-            var client = new Twit ({
-
-              consumer_key:'FvXUtpAcjxQbA7Pljd7BnR4nU',
-              consumer_secret:'hpnmzytHudEjtX5LSyWRAY6uqcwuUe06PZSLSeryt8NhTPrR3K',
-              access_token: req.session.oauth.access_token,
-              access_token_secret: req.session.oauth.access_token_secret,
-              timeout_ms: 60*1000
-            });
-
-            client.get('search/tweets', {q: 'I since:2011-07-11', count: 100},
-            function(err,data,response){
-              if(err){
-                console.log("no");
-              }
-              else{
-                console.log(data);
-              }
-            });
-            // res.redirect('/'); // You might actually want to redirect!
-            //res.render('twitter', {
-              //pageTitle:'Twitter',
-              //pageID: 'twitter'
-            //});;
+            res.redirect('/auth/twitter/info');
           }
         });
     }
@@ -92,5 +60,28 @@ router.get('/twitter', function(req, res) {
 
   });
 });
+
+router.get('/auth/twitter/info',function(req,res,next){
+
+  var client = new Twit ({
+
+    consumer_key:'FvXUtpAcjxQbA7Pljd7BnR4nU',
+    consumer_secret:'hpnmzytHudEjtX5LSyWRAY6uqcwuUe06PZSLSeryt8NhTPrR3K',
+    access_token: req.session.oauth.access_token,
+    access_token_secret: req.session.oauth.access_token_secret,
+    timeout_ms: 60*1000
+  });
+
+  client.get('statuses/user_timeline', {screen_name: 'Michael Stumpf', count: 100},
+  function(err,data,response){
+    if(err){
+      console.log("no");
+    }
+    else{
+      console.log(data);
+      res.send("got it");
+    }
+  });
+})
 
 module.exports = router;
