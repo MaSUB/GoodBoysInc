@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  background-color: #4b86b4; }
+
+h1 {
+  font-family: "Fjalla One", sans-serif; }
+
+a, p {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.25em; }
+
+.header {
+  padding-top: 1em;
+  margin: 0 0 1em 0;
+  text-align: center;
+  background-color: #adcbe3; }
+  .header #page-title {
+    font-size: 5em;
+    color: #F5F5F5;
+    font-family: "Schoolbell", cursive;
+    background-color: #adcbe3; }
+  .header .nav-bar {
+    border-bottom: 3px solid #4b86b4;
+    border-top: 3px solid #4b86b4;
+    background-color: #63ace5; }
+    .header .nav-bar .nav-bar-item {
+      display: inline-block;
+      margin: .5em 0 .5em 0;
+      padding: .5em 0 .5em 0;
+      width: 10em;
+      background-color: #2a4d69; }
+      .header .nav-bar .nav-bar-item:hover {
+        background-color: #e7eff6; }
+        .header .nav-bar .nav-bar-item:hover a {
+          color: black; }
+      .header .nav-bar .nav-bar-item a {
+        text-decoration: none;
+        color: #F5F5F5; }
+
+/*# sourceMappingURL=styles.css.map */

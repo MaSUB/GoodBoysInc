@@ -9,6 +9,9 @@ $headingFont: 'Fjalla One', sans-serif;
 $titleFont:   'Schoolbell', cursive;
 $paragraphFont:'Raleway', sans-serif;
 
+$HeadingColor: black;
+$paragraphColor: black;
+
 body{
     margin: 0;
     background-color: $darkBlue;
@@ -67,4 +70,31 @@ a, p{
         }
 
     }
+}
+
+.content{
+  margin: 0 10% 0 10%;
+
+  .content-row{
+    background-color: $lightBlue;
+    height: auto;
+    padding: 1em;
+
+    .content-header{
+      font-family: $headingFont;
+      color: $HeadingColor;
+      margin: 0 0 .5em 0;
+      font-size: 2em;
+    }
+
+    .content-text{
+      font-family: $paragraphFont;
+      color: $paragraphColor;
+
+      p{
+        margin: 0px;
+        font-size: 1em;
+      }
+    }
+  }
 }

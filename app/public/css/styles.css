@@ -37,4 +37,22 @@ a, p {
         text-decoration: none;
         color: #F5F5F5; }
 
-/*# sourceMappingURL=output.css.map */
+.content {
+  margin: 0 10% 0 10%; }
+  .content .content-row {
+    background-color: #adcbe3;
+    height: auto;
+    padding: 1em; }
+    .content .content-row .content-header {
+      font-family: "Fjalla One", sans-serif;
+      color: black;
+      margin: 0 0 .5em 0;
+      font-size: 2em; }
+    .content .content-row .content-text {
+      font-family: "Raleway", sans-serif;
+      color: black; }
+      .content .content-row .content-text p {
+        margin: 0px;
+        font-size: 1em; }
+
+/*# sourceMappingURL=styles.css.map */
