@@ -8,7 +8,7 @@ var OAuth = require('oauth').OAuth
       "FvXUtpAcjxQbA7Pljd7BnR4nU",
       "hpnmzytHudEjtX5LSyWRAY6uqcwuUe06PZSLSeryt8NhTPrR3K",
       "1.0",
-      "http://localhost:3000/auth/twitter/callback",
+      "https://goodboysinc-mws5966.c9users.io/auth/twitter/callback",
       "HMAC-SHA1"
     );
 
@@ -78,8 +78,25 @@ router.get('/auth/twitter/info',function(req,res,next){
       console.log("no");
     }
     else{
-      console.log(data);
+      
+     
+      
+      var twitObj = {
+        contentItem:[]
+      };
+      
+      data.forEach(function(value){
+        
+        twitObj.contentItem.push({content: value.text});
+      });
+      
+       
+       
+      req.session.obj = twitObj;
+      console.log(req.session.obj);
       res.send("got it");
+      
+      
     }
   });
 })
