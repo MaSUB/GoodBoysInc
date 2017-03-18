@@ -39,20 +39,31 @@ a, p {
 
 .content {
   margin: 0 10% 0 10%; }
+  .content .content-text {
+    font-family: "Raleway", sans-serif;
+    color: black; }
+    .content .content-text p {
+      margin: 0px;
+      font-size: 1em; }
+  .content .content-header {
+    font-family: "Fjalla One", sans-serif;
+    color: black;
+    margin: 0 0 .5em 0;
+    font-size: 2em; }
   .content .content-row {
     background-color: #adcbe3;
     height: auto;
-    padding: 1em; }
-    .content .content-row .content-header {
-      font-family: "Fjalla One", sans-serif;
-      color: black;
-      margin: 0 0 .5em 0;
-      font-size: 2em; }
-    .content .content-row .content-text {
-      font-family: "Raleway", sans-serif;
-      color: black; }
-      .content .content-row .content-text p {
+    padding: 1em;
+    margin: 1em 0 1em 0;
+    display: inline-block; }
+    .content .content-row .content-text-split {
+      width: 50%;
+      float: left; }
+      .content .content-row .content-text-split p {
         margin: 0px;
         font-size: 1em; }
+    .content .content-row .content-img-split {
+      width: 50%;
+      float: right; }
 
 /*# sourceMappingURL=styles.css.map */

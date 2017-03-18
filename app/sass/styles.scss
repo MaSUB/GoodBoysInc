@@ -75,26 +75,41 @@ a, p{
 .content{
   margin: 0 10% 0 10%;
 
+  .content-text{
+    font-family: $paragraphFont;
+    color: $paragraphColor;
+    p{
+      margin: 0px;
+      font-size: 1em;
+    }
+  }
+  .content-header{
+    font-family: $headingFont;
+    color: $HeadingColor;
+    margin: 0 0 .5em 0;
+    font-size: 2em;
+  }
+
   .content-row{
     background-color: $lightBlue;
     height: auto;
     padding: 1em;
+    margin: 1em 0 1em 0;
+    display: inline-block;
 
-    .content-header{
-      font-family: $headingFont;
-      color: $HeadingColor;
-      margin: 0 0 .5em 0;
-      font-size: 2em;
-    }
-
-    .content-text{
-      font-family: $paragraphFont;
-      color: $paragraphColor;
-
+    .content-text-split{
+      width:50%;
+      float:left;
       p{
         margin: 0px;
         font-size: 1em;
       }
     }
+
+    .content-img-split{
+      width:50%;
+      float: right;
+    }
   }
+
 }
