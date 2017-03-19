@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <body>
   <button onclick='userLogin()'>Login</button></button>
   <button onclick='checkStatus()'>Check Status</button>
@@ -33,7 +34,7 @@ function getPosts(){
             var post = response.data[element];
             if(post.hasOwnProperty("message")){
               var messageString = JSON.stringify(post.message);
-              alert(messageString);
+              console.log(messageString);
               jsonObj['profile'].push({"message" : messageString});
             }
         }
@@ -46,7 +47,7 @@ function getPosts(){
                   var post = response.data[element];
                   if(post.hasOwnProperty("message")){
                     var messageString = JSON.stringify(post.message);
-                    alert(messageString);
+                    console.log(messageString);
                     jsonObj['profile'].push({"message" : messageString});
                   }
               }
@@ -59,13 +60,27 @@ function getPosts(){
                         var post = response.data[element];
                         if(post.hasOwnProperty("message")){
                           var messageString = JSON.stringify(post.message);
-                          alert(messageString);
+                          console.log(messageString);
                           jsonObj['profile'].push({"message" : messageString});
                         }
                     }
                     nextPage = response.paging.next;
-                    alert("done");
-                    alert(JSON.stringify(jsonObj));
+                    console.log("done");
+                    console.log(JSON.stringify(jsonObj));
+                    
+                    //jquery 
+                    $.ajax({
+                      type: 'POST',
+                      dataType: "json",
+                      contentType: "application/x-www-form-urlencoded", 
+                      url: 'https://goodboysinc-mws5966.c9users.io/facebook/info',	
+						          data: JSON.stringify(jsonObj),
+                      success: function(data) {
+                          console.log('success');
+                          //console.log(JSON.stringify(data));
+                        }
+                    });
+                    
                   } else {
                     alert("error");
                   }
@@ -83,13 +98,13 @@ function getPosts(){
 function checkStatus(){
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
-      alert("connected");
+      console.log("connected");
       uid = response.authResponse.userID;
       accessToken = response.authResponse.accessToken;
     } else if (response.status === 'not_authorized') {
-      alert("ot authd");
+      console.log("not authd");
     } else {
-      alert("not connected");
+      console.log("not connected");
     }
    });
 }
