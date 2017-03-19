@@ -1,0 +1,113 @@
+<body>
+  <button onclick='userLogin()'>Login</button></button>
+  <button onclick='checkStatus()'>Check Status</button>
+  <button onclick='getPosts()'>Get Posts</button>
+  <br />
+  <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+  </div>
+
+</body>
+<script>
+
+var uid = 0;
+var accessToken = 0;
+
+function userLogin(){
+  FB.login(function(response) {
+  }, {scope: 'user_posts'});
+}
+
+function getPosts(){
+  var jsonObj = {
+    profile:[]
+  };
+  FB.api(
+    "/me/posts",
+    function (response){
+      if (response && !response.error) {
+        for (element in response.data){
+            var post = response.data[element];
+            if(post.hasOwnProperty("message")){
+              var messageString = JSON.stringify(post.message);
+              alert(messageString);
+              jsonObj['profile'].push({"message" : messageString});
+            }
+        }
+        nextPage = response.paging.next;
+        FB.api(
+          nextPage,
+          function (response){
+            if (response && !response.error) {
+              for (element in response.data){
+                  var post = response.data[element];
+                  if(post.hasOwnProperty("message")){
+                    var messageString = JSON.stringify(post.message);
+                    alert(messageString);
+                    jsonObj['profile'].push({"message" : messageString});
+                  }
+              }
+              nextPage = response.paging.next;
+              FB.api(
+                nextPage,
+                function (response){
+                  if (response && !response.error) {
+                    for (element in response.data){
+                        var post = response.data[element];
+                        if(post.hasOwnProperty("message")){
+                          var messageString = JSON.stringify(post.message);
+                          alert(messageString);
+                          jsonObj['profile'].push({"message" : messageString});
+                        }
+                    }
+                    nextPage = response.paging.next;
+                    alert("done");
+                    alert(JSON.stringify(jsonObj));
+                  } else {
+                    alert("error");
+                  }
+                });
+            } else {
+              alert("error");
+            }
+          });
+      } else {
+        alert("error");
+      }
+    });
+}
+
+function checkStatus(){
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      alert("connected");
+      uid = response.authResponse.userID;
+      accessToken = response.authResponse.accessToken;
+    } else if (response.status === 'not_authorized') {
+      alert("ot authd");
+    } else {
+      alert("not connected");
+    }
+   });
+}
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1776987122628805',
+    xfbml      : true,
+    version    : 'v2.8'
+  });
+  FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "https://connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+</script>

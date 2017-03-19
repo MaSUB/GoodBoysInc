@@ -15,6 +15,7 @@ app.use(express.static('app/public'));
 app.use(require('./routes/index'));
 app.use(require('./routes/personality'));
 app.use(require('./routes/twitter'));
+app.use(require('./routes/facebook'));
 
 var server = app.listen(app.get('port'), function() {
   console.log('Listening on port ' + app.get('port'));
