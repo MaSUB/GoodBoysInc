@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Twit = require('twit');
+var jsonfile =require('jsonfile');
 var OAuth = require('oauth').OAuth
   , oauth = new OAuth(
       "https://api.twitter.com/oauth/request_token",
@@ -8,9 +9,10 @@ var OAuth = require('oauth').OAuth
       "FvXUtpAcjxQbA7Pljd7BnR4nU",
       "hpnmzytHudEjtX5LSyWRAY6uqcwuUe06PZSLSeryt8NhTPrR3K",
       "1.0",
-      "https://goodboysinc-mws5966.c9users.io/auth/twitter/callback",
+      "http://localhost:3000/auth/twitter/callback",
       "HMAC-SHA1"
     );
+
 
 router.get('/twitter', function(req, res) {
 
@@ -78,25 +80,20 @@ router.get('/auth/twitter/info',function(req,res,next){
       console.log("no");
     }
     else{
-      
-     
-      
+      /* create object */
       var twitObj = {
-        contentItem:[]
+        content_Items:[]
       };
-      
       data.forEach(function(value){
-        
-        twitObj.contentItem.push({content: value.text});
+        twitObj.content_Items.push({content: value.text});
       });
-      
-       
-       
-      req.session.obj = twitObj;
-      console.log(req.session.obj);
-      res.send("got it");
-      
-      
+
+      /* write out to file */
+      var file = './../GoodBoysInc/app/data/twitterPersonal.json';
+      jsonfile.writeFile(file, twitObj, function(err){
+        console.error(err);
+      });
+      res.redirect('/personality');
     }
   });
 })
