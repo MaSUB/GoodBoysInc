@@ -1,0 +1,115 @@
+$darkestBlue: #2a4d69;
+$darkBlue:    #4b86b4;
+$blue:        #63ace5;
+$lightBlue:   #adcbe3;
+$lightestBlue:#e7eff6;
+$offWhite:    #F5F5F5;
+
+$headingFont: 'Fjalla One', sans-serif;
+$titleFont:   'Schoolbell', cursive;
+$paragraphFont:'Raleway', sans-serif;
+
+$HeadingColor: black;
+$paragraphColor: black;
+
+body{
+    margin: 0;
+    background-color: $darkBlue;
+}
+
+h1{
+    font-family:$headingFont;
+}
+
+a, p{
+  font-family: $paragraphFont;
+  font-size: 1.25em;
+}
+
+.header{
+    padding-top: 1em;
+    margin: 0 0 1em 0;
+    text-align: center;
+    background-color:$lightBlue;
+
+    #page-title{
+        font-size: 5em;
+        color: $offWhite;
+        font-family:$titleFont;
+        background-color:$lightBlue;
+    }
+    .nav-bar{
+        border-bottom:3px solid $darkBlue;
+        border-top: 3px solid $darkBlue;
+        background-color:$blue;
+
+        .nav-bar-item {
+          display: inline-block;
+          margin: .5em 0 .5em 0;
+          padding: .5em 0 .5em 0;
+          width: 10em;
+          background-color: $darkestBlue;
+
+          //
+          //  eventually I want to add a slower fade transition to the
+          //  color change.
+          //
+          &:hover{
+            background-color: $lightestBlue;
+
+            a{
+              color:black;
+            }
+          }
+
+          a{
+            text-decoration: none;
+            color: $offWhite
+          }
+
+        }
+
+    }
+}
+
+.content{
+  margin: 0 10% 0 10%;
+
+  .content-text{
+    font-family: $paragraphFont;
+    color: $paragraphColor;
+    p{
+      margin: 0px;
+      font-size: 1em;
+    }
+  }
+  .content-header{
+    font-family: $headingFont;
+    color: $HeadingColor;
+    margin: 0 0 .5em 0;
+    font-size: 2em;
+  }
+
+  .content-row{
+    background-color: $lightBlue;
+    height: auto;
+    padding: 1em;
+    margin: 1em 0 1em 0;
+    display: inline-block;
+
+    .content-text-split{
+      width:50%;
+      float:left;
+      p{
+        margin: 0px;
+        font-size: 1em;
+      }
+    }
+
+    .content-img-split{
+      width:50%;
+      float: right;
+    }
+  }
+
+}
