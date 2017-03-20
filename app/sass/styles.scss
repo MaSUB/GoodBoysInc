@@ -13,12 +13,12 @@ $HeadingColor: black;
 $paragraphColor: black;
 
 body{
-    margin: 0;
-    background-color: $darkBlue;
+  margin: 0;
+  background-color: $darkBlue;
 }
 
 h1{
-    font-family:$headingFont;
+  font-family:$headingFont;
 }
 
 a, p{
@@ -27,49 +27,48 @@ a, p{
 }
 
 .header{
-    padding-top: 1em;
-    margin: 0 0 1em 0;
-    text-align: center;
-    background-color:$lightBlue;
+  padding-top: 1em;
+  margin: 0 0 1em 0;
+  text-align: center;
+  background-color:$lightBlue;
 
     #page-title{
-        font-size: 5em;
-        color: $offWhite;
-        font-family:$titleFont;
-        background-color:$lightBlue;
+      font-size: 5em;
+      color: $offWhite;
+      font-family:$titleFont;
+      background-color:$lightBlue;
     }
     .nav-bar{
-        border-bottom:3px solid $darkBlue;
-        border-top: 3px solid $darkBlue;
-        background-color:$blue;
+      border-bottom:3px solid $darkBlue;
+      border-top: 3px solid $darkBlue;
+      background-color:$blue;
 
-        .nav-bar-item {
-          display: inline-block;
-          margin: .5em 0 .5em 0;
-          padding: .5em 0 .5em 0;
-          width: 10em;
-          background-color: $darkestBlue;
+      .nav-bar-item {
+        display: inline-block;
+        margin: .5em 0 .5em 0;
+        padding: .5em 0 .5em 0;
+        width: 10em;
+        background-color: $darkestBlue;
+        -webkit-transition: background-color .5s ease-out;
+        -moz-transition: background-color .5s ease-out;
+        -o-transition: background-color .5s ease-out;
+        transition: background-color .5s ease-out;
 
-          //
-          //  eventually I want to add a slower fade transition to the
-          //  color change.
-          //
-          &:hover{
-            background-color: $lightestBlue;
+      &:hover{
+        background-color: $lightestBlue;
 
-            a{
-              color:black;
-            }
-          }
 
-          a{
-            text-decoration: none;
-            color: $offWhite
-          }
-
+        a{
+          color:black;
         }
+      }
 
+      a{
+        text-decoration: none;
+        color: $offWhite
+      }
     }
+  }
 }
 
 .content{
@@ -100,6 +99,7 @@ a, p{
     .content-text-split{
       width:50%;
       float:left;
+
       p{
         margin: 0px;
         font-size: 1em;
@@ -112,4 +112,39 @@ a, p{
     }
   }
 
+}
+
+.footer{
+  width: 97.7%;
+  padding: 1em;
+  display:  inline-block;
+  background-color: $blue;
+
+  .footer-left{
+    width:70%;
+    display: inline-block;
+
+    .footer-text{
+      padding: 0px;
+      margin:0px;
+      font-size: .75em;
+      color: black;
+    }
+  }
+  .footer-right{
+    float:  right;
+    width: 20%;
+    text-align: right;
+    .footer-text{
+      color: black;
+      font-size: 25px;
+      a:visited {
+        color: black;
+      }
+    }
+  }
+}
+
+#git-link{
+  width: 25px;
 }
