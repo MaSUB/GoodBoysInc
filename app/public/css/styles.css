@@ -1,6 +1,12 @@
-body {
+html, body {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  background-color: #4b86b4;
   margin: 0;
-  background-color: #4b86b4; }
+  padding: 0;
+  height: 100%;
+  min-height: 100%; }
 
 h1 {
   font-family: "Fjalla One", sans-serif; }
@@ -42,7 +48,8 @@ a, p {
         color: #F5F5F5; }
 
 .content {
-  margin: 0 10% 0 10%; }
+  margin: 0 10% 0 10%;
+  padding-bottom: 50px; }
   .content .content-text {
     font-family: "Raleway", sans-serif;
     color: black; }
@@ -71,10 +78,13 @@ a, p {
       float: right; }
 
 .footer {
-  width: 97.7%;
   padding: 1em;
-  display: inline-block;
-  background-color: #63ace5; }
+  background-color: #63ace5;
+  width: 97.7%;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em; }
   .footer .footer-left {
     width: 70%;
     display: inline-block; }
@@ -86,7 +96,8 @@ a, p {
   .footer .footer-right {
     float: right;
     width: 20%;
-    text-align: right; }
+    text-align: right;
+    display: inline-block; }
     .footer .footer-right .footer-text {
       color: black;
       font-size: 25px; }

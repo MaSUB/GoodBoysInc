@@ -1,3 +1,4 @@
+
 $darkestBlue: #2a4d69;
 $darkBlue:    #4b86b4;
 $blue:        #63ace5;
@@ -12,9 +13,15 @@ $paragraphFont:'Raleway', sans-serif;
 $HeadingColor: black;
 $paragraphColor: black;
 
-body{
-  margin: 0;
+html,body{
+  position: relative;
+  width: 100%;
+  min-width: 100%;
   background-color: $darkBlue;
+  margin:0;
+  padding:0;
+  height:100%;
+  min-height: 100%;
 }
 
 h1{
@@ -73,6 +80,7 @@ a, p{
 
 .content{
   margin: 0 10% 0 10%;
+  padding-bottom: 50px;
 
   .content-text{
     font-family: $paragraphFont;
@@ -115,10 +123,13 @@ a, p{
 }
 
 .footer{
-  width: 97.7%;
   padding: 1em;
-  display:  inline-block;
   background-color: $blue;
+  width: 97.7%;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
 
   .footer-left{
     width:70%;
@@ -135,6 +146,8 @@ a, p{
     float:  right;
     width: 20%;
     text-align: right;
+    display: inline-block;
+
     .footer-text{
       color: black;
       font-size: 25px;
