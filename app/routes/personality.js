@@ -25,7 +25,6 @@ router.get('/personality/twitter', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      var anger = response.personality[0].name;
       //console.log(JSON.stringify(response, null, 2));
 
     }
@@ -50,8 +49,7 @@ router.get('/personality/facebook', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      var anger = response.personality[0].name;
-      //console.log(JSON.stringify(response, null, 2));
+      //console.log("Here" + JSON.stringify(response, null, 2));
 
     }
   });
@@ -75,8 +73,7 @@ router.get('/personality/about', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      var anger = response.personality[0].name;
-      //console.log(JSON.stringify(response, null, 2));
+      console.log(JSON.stringify(response, null, 2));
 
     }
   });

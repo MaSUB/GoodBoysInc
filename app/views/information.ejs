@@ -33,32 +33,34 @@
         <!-- End of header section  -->
 
         <!-- Start of content section  -->
-        <div class="content">
-          <div class="content-row-info">
-            <div class="info-wrapper">
-              <h2 class="content-header">Please Enter Required Information</h2>
-              <div class="info-form">
-                <div class="form-row">
-                  <input class="input-row" type="text" placeholder="First Name"/>
-                </div>
-                <div class="form-row">
-                  <input class="input-row" type="text" placeholder="Last Name">
-                </div>
-                <div class="form-row">
-                  <input class="input-row" type="email" placeholder="Email">
-                </div>
-                <div class="form-row">
-                  <textarea class="input-row" id="info-area" placeholder="Talk about yourself" cols="30" rows="5"></textarea>
-                </div>
-                <div class="form-row">
-                  <div class="form-submit">
-                    <a href="">Submit</a>
+        <form action="/information/info" method="post">
+          <div class="content">
+            <div class="content-row-info">
+              <div class="info-wrapper">
+                <h2 class="content-header">Please Enter Required Information</h2>
+                <div class="info-form">
+                  <div class="form-row">
+                    <input class="input-row" type="text" placeholder="First Name" name="fname"/>
+                  </div>
+                  <div class="form-row">
+                    <input class="input-row" type="text" placeholder="Last Name" name="lname">
+                  </div>
+                  <div class="form-row">
+                    <input class="input-row" type="email" placeholder="Email" name="email">
+                  </div>
+                  <div class="form-row">
+                    <textarea class="input-row" id="info-area" placeholder="Talk about yourself" name="aboutYou" cols="30" rows="5"></textarea>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-submit">
+                      <input type="submit" value="Submit">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        <form>
         <!--  End of content section  -->
 
         <!-- Start of footer section -->
