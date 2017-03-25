@@ -4,8 +4,8 @@ var jsonfile = require("jsonfile");
 var session = require('client-sessions');
 
 router.get('/facebook', function(req, res) {
-  res.render('facebook', {
-    pageTitle:'Facebook',
+  res.render('facebookLogin', {
+    pageTitle:'FacebookLogin',
     pageID: 'facebook'
   });
 });
@@ -21,4 +21,3 @@ router.post('/facebook/info', function(req, res){
 });
 
 module.exports = router;
-
