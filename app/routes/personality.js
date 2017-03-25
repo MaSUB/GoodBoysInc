@@ -50,7 +50,6 @@ router.get('/personality/facebook', function(req, res, next){
       console.log('Error:', error);
     else{
       //console.log("Here" + JSON.stringify(response, null, 2));
-
     }
   });
 });
