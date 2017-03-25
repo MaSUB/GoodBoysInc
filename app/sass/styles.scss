@@ -40,6 +40,9 @@ a, p{
   background-color:$lightBlue;
 
     #page-title{
+      @media only screen and (max-width: 725px) {
+        font-size: 2.75em;
+      }
       font-size: 5em;
       color: $offWhite;
       font-family:$titleFont;
@@ -51,6 +54,11 @@ a, p{
       background-color:$blue;
 
       .nav-bar-item {
+        @media only screen and (max-width: 725px) {
+          display: block;
+          width: 100%;
+          margin: 1px 0;
+        }
         display: inline-block;
         margin: .5em 0 .5em 0;
         padding: .5em 0 .5em 0;
@@ -86,6 +94,9 @@ a, p{
     font-family: $paragraphFont;
     color: $paragraphColor;
     p{
+      @media only screen and (max-width: 725px) {
+        font-size: .75em;
+      }
       margin: 0px;
       font-size: 1em;
     }
@@ -95,6 +106,10 @@ a, p{
     color: $HeadingColor;
     margin: 0 0 .5em 0;
     font-size: 2em;
+    @media only screen and (max-width: 725px) {
+      text-align: center;
+      font-size:1.5em;
+    }
   }
 
   .content-row{
@@ -106,16 +121,28 @@ a, p{
     display: inline-block;
 
     .content-text-split{
+      @media only screen and (max-width: 725px) {
+        width:100%;
+        float:none;
+      }
       width:50%;
       float:left;
 
       p{
+        @media only screen and (max-width: 725px) {
+          font-size: .75em;
+        }
         margin: 0px;
         font-size: 1em;
       }
     }
 
     .content-img-split{
+      @media only screen and (max-width: 725px) {
+        width:100%;
+        float:none;
+      }
+
       width:50%;
       float: right;
     }
@@ -185,13 +212,28 @@ a, p{
     .form-row{
       width:100%;
 
+      input{
+        font-family: $paragraphFont;
+        border: 1px solid $darkestBlue;
+        padding: 5px;
+      }
+
       .input-row{
-        width: 500px;
+        @media only screen and (max-width: 725px) {
+          width: 75%;
+          height: 25px;
+          margin: .5em 0;
+        }
+        width: 490px;
         height: 25px;
         margin: .5em 0;
       }
       #info-area{
         height: 250px;
+        font-family: $paragraphFont;
+        border: 1px solid $darkestBlue;
+        resize: vertical;
+        padding: 5px;
       }
 
       .form-submit{
@@ -199,6 +241,11 @@ a, p{
           margin: .5em 0 .5em 0;
           padding: .5em 0 .5em 0;
           width: 500px;
+          @media only screen and (max-width: 725px) {
+            width: 75%;
+            margin: .5em 0 .5em 0;
+          }
+
           border: 1px solid $darkestBlue;
           background-color: $darkestBlue;
           cursor: pointer;
@@ -218,7 +265,7 @@ a, p{
           a{
             text-decoration: none;
             color: $offWhite
-          }
+        }
       }
     }
   }
