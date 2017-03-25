@@ -80,6 +80,7 @@ router.get('/auth/twitter/info',function(req,res,next){
       console.log("no");
     }
     else{
+
       /* create object */
       var twitObj = {
         content_Items:[]
@@ -89,11 +90,13 @@ router.get('/auth/twitter/info',function(req,res,next){
       });
 
       /* write out to file */
-      var file = './../GoodBoysInc/app/data/twitterPersonal.json';
+      var file = './../GoodBoysInc/app/data/twitFeed.json';
       jsonfile.writeFile(file, twitObj, function(err){
         console.error(err);
       });
-      res.redirect('/personality');
+
+      /* Send to Watson */
+      res.redirect('/personality/twitter');
     }
   });
 })

@@ -67,20 +67,20 @@ function getPosts(){
                     nextPage = response.paging.next;
                     console.log("done");
                     console.log(JSON.stringify(jsonObj));
-                    
-                    //jquery 
+
+                    //jquery
                     $.ajax({
                       type: 'POST',
                       dataType: "json",
-                      contentType: "application/x-www-form-urlencoded", 
-                      url: 'https://goodboysinc-mws5966.c9users.io/facebook/info',	
+                      contentType: "application/x-www-form-urlencoded",
+                      url: 'http://localhost:3000/facebook/info',
 						          data: JSON.stringify(jsonObj),
                       success: function(data) {
                           console.log('success');
                           //console.log(JSON.stringify(data));
                         }
                     });
-                    
+
                   } else {
                     alert("error");
                   }
