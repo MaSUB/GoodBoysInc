@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> <%= siteTitle %>--<%= pageTitle %></title>
+        <link rel="stylesheet" type="text/css" href="/css/facebookStyles.css">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    </head>
+    <body id="<%= pageID %>">
+
+      <!--  Start of header section  -->
+      <div class='header'>
+        <div class="top-header">
+          <h1 id="page-title">GoodBoysInc.</h1>
+        </div>
+        <div class="nav-bar">
+          <div class=nav-bar-item>
+            <a href="">Home</a>
+          </div>
+          <div class=nav-bar-item>
+            <a href="">Dog for you</a>
+          </div>
+          <div class=nav-bar-item>
+            <a href="">Dog Types</a>
+          </div>
+          <div class=nav-bar-item>
+            <a href="">About Us</a>
+          </div>
+        </div>
+      </div>
+      <!-- End of header section  -->
+
+      <!-- Start of content section  -->
+      <div class="content">
+        <div class="content-row">
+          <h2 class="content-header">How It Works</h2>
+          <div class="content-text">
+            <p>
+              1) Press the "Login" button and sign into your Facebook<br />
+              2) Authorize the permissions to grant the ability to read your Facebook personality characteristics<br />
+              3) If you decline the permissions, the report cannot be constructed<br />
+              4) To fix this, you will need to go to your page, and remove the app from your profile, sign out, then try again to reauthorize<br />
+              5) Onced authorized, the information will be gathered (but not stored), and you will be redirected to continue the process<br />
+            </p>
+          </div>
+        </div>
+
+        <div class="content-row">
+          <h2 class="content-header">Facebook Personality Retriever</h2>
+          <div class="content-text-split">
+            <button onclick="userLogin()">Login and Authorize Facebook</button>
+            <br />
+            <button onclick="checkStatus()">Continue</button>
+            <br />
+            <br />
+            <p> Like and share us on Facebook!</p>
+            <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+            </div>
+          </div>
+          <img class='content-img-split' src="https://i0.wp.com/fusion.net/wp-content/uploads/2016/08/160829-facebook-psych.png?resize=1600%2C900&quality=80&strip=all" alt="faceBookPsych.png">
+        </div>
+      </div>
+      <!--  End of content section  -->
+
+      <!-- Start of footer section -->
+      <div class="footer">
+
+      </div>
+      <!-- End of footer section -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="/reload/reload.js/"></script>
+    </body>
+</html>
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1776987122628805',
+    xfbml      : true,
+    version    : 'v2.8'
+  });
+  FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "https://connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+
+function userLogin(){
+  FB.login(function(response) {
+  }, {scope: 'user_posts'});
+}
+
+function checkStatus(){
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      uid = response.authResponse.userID;
+      accessToken = response.authResponse.accessToken;
+      console.log("connected");
+      getPosts();
+    } else if (response.status === 'not_authorized') {
+      alert("You did not authorize Facebook correctly. Please remove the app from within your Facebook settings and try again");
+    } else {
+      alert("Facebook not connected, please log in");
+    }
+   });
+}
+
+function getPosts(){
+  var jsonObj = {
+    profile:[]
+  };
+  FB.api(
+    "/me/posts",
+    function (response){
+      if (response && !response.error) {
+        for (element in response.data){
+            var post = response.data[element];
+            if(post.hasOwnProperty("message")){
+              var messageString = JSON.stringify(post.message);
+              console.log(messageString);
+              jsonObj['profile'].push({"message" : messageString});
+            }
+        }
+        nextPage = response.paging.next;
+        FB.api(
+          nextPage,
+          function (response){
+            if (response && !response.error) {
+              for (element in response.data){
+                  var post = response.data[element];
+                  if(post.hasOwnProperty("message")){
+                    var messageString = JSON.stringify(post.message);
+                    console.log(messageString);
+                    jsonObj['profile'].push({"message" : messageString});
+                  }
+              }
+              nextPage = response.paging.next;
+              FB.api(
+                nextPage,
+                function (response){
+                  if (response && !response.error) {
+                    for (element in response.data){
+                        var post = response.data[element];
+                        if(post.hasOwnProperty("message")){
+                          var messageString = JSON.stringify(post.message);
+                          console.log(messageString);
+                          jsonObj['profile'].push({"message" : messageString});
+                        }
+                    }
+                    nextPage = response.paging.next;
+                    console.log("done");
+                    console.log(JSON.stringify(jsonObj));
+
+                    //jquery
+                    $.ajax({
+                      type: 'POST',
+                      dataType: "json",
+                      contentType: "application/x-www-form-urlencoded",
+                      url: 'http://localhost:3000/facebook/info',
+						          data: JSON.stringify(jsonObj),
+                      success: function(data) {
+                          console.log('success');
+                          //console.log(JSON.stringify(data));
+                        }
+                    });
+
+                  } else {
+                    alert("error");
+                  }
+                });
+            } else {
+              alert("error");
+            }
+          });
+      } else {
+        alert("error");
+      }
+    });
+}
+
+</script>

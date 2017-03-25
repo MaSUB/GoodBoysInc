@@ -1,0 +1,128 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<body>
+  <button onclick='userLogin()'>Login</button></button>
+  <button onclick='checkStatus()'>Check Status</button>
+  <button onclick='getPosts()'>Get Posts</button>
+  <br />
+  <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+  </div>
+
+</body>
+<script>
+
+var uid = 0;
+var accessToken = 0;
+
+function userLogin(){
+  FB.login(function(response) {
+  }, {scope: 'user_posts'});
+}
+
+function getPosts(){
+  var jsonObj = {
+    profile:[]
+  };
+  FB.api(
+    "/me/posts",
+    function (response){
+      if (response && !response.error) {
+        for (element in response.data){
+            var post = response.data[element];
+            if(post.hasOwnProperty("message")){
+              var messageString = JSON.stringify(post.message);
+              console.log(messageString);
+              jsonObj['profile'].push({"message" : messageString});
+            }
+        }
+        nextPage = response.paging.next;
+        FB.api(
+          nextPage,
+          function (response){
+            if (response && !response.error) {
+              for (element in response.data){
+                  var post = response.data[element];
+                  if(post.hasOwnProperty("message")){
+                    var messageString = JSON.stringify(post.message);
+                    console.log(messageString);
+                    jsonObj['profile'].push({"message" : messageString});
+                  }
+              }
+              nextPage = response.paging.next;
+              FB.api(
+                nextPage,
+                function (response){
+                  if (response && !response.error) {
+                    for (element in response.data){
+                        var post = response.data[element];
+                        if(post.hasOwnProperty("message")){
+                          var messageString = JSON.stringify(post.message);
+                          console.log(messageString);
+                          jsonObj['profile'].push({"message" : messageString});
+                        }
+                    }
+                    nextPage = response.paging.next;
+                    console.log("done");
+                    console.log(JSON.stringify(jsonObj));
+
+                    //jquery
+                    $.ajax({
+                      type: 'POST',
+                      dataType: "json",
+                      contentType: "application/x-www-form-urlencoded",
+                      url: 'http://localhost:3000/facebook/info',
+						          data: JSON.stringify(jsonObj),
+                      success: function(data) {
+                          console.log('success');
+                          //console.log(JSON.stringify(data));
+                        }
+                    });
+
+                  } else {
+                    alert("error");
+                  }
+                });
+            } else {
+              alert("error");
+            }
+          });
+      } else {
+        alert("error");
+      }
+    });
+}
+
+function checkStatus(){
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+      console.log("connected");
+      uid = response.authResponse.userID;
+      accessToken = response.authResponse.accessToken;
+    } else if (response.status === 'not_authorized') {
+      console.log("not authd");
+    } else {
+      console.log("not connected");
+    }
+   });
+}
+
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1776987122628805',
+    xfbml      : true,
+    version    : 'v2.8'
+  });
+  FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "https://connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+</script>

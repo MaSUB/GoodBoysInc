@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Twit = require('twit');
+var jsonfile =require('jsonfile');
 var OAuth = require('oauth').OAuth
   , oauth = new OAuth(
       "https://api.twitter.com/oauth/request_token",
@@ -11,6 +12,7 @@ var OAuth = require('oauth').OAuth
       "http://localhost:3000/auth/twitter/callback",
       "HMAC-SHA1"
     );
+
 
 router.get('/twitter', function(req, res) {
 
@@ -78,8 +80,23 @@ router.get('/auth/twitter/info',function(req,res,next){
       console.log("no");
     }
     else{
-      console.log(data);
-      res.send("got it");
+
+      /* create object */
+      var twitObj = {
+        content_Items:[]
+      };
+      data.forEach(function(value){
+        twitObj.content_Items.push({content: value.text});
+      });
+
+      /* write out to file */
+      var file = './../GoodBoysInc/app/data/twitFeed.json';
+      jsonfile.writeFile(file, twitObj, function(err){
+        console.error(err);
+      });
+
+      /* Send to Watson */
+      res.redirect('/personality/twitter');
     }
   });
 })
