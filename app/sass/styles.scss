@@ -98,6 +98,7 @@ a, p{
   }
 
   .content-row{
+    width: 100%;
     background-color: $lightBlue;
     height: auto;
     padding: 1em;
@@ -160,4 +161,65 @@ a, p{
 
 #git-link{
   width: 25px;
+}
+
+
+//
+//  Information page sass starts here :)
+//
+.content-row-info{
+  width: 100%;
+  background-color: $lightBlue;
+  height: auto;
+  margin: 1em 0 1em 0;
+  display: inline-block;
+}
+
+.info-wrapper{
+  padding:1em;
+
+  .info-form{
+    text-align: center;
+    width: 100%;
+
+    .form-row{
+      width:100%;
+
+      .input-row{
+        width: 500px;
+        height: 25px;
+        margin: .5em 0;
+      }
+      #info-area{
+        height: 250px;
+      }
+
+      .form-submit{
+          display: inline-block;
+          margin: .5em 0 .5em 0;
+          padding: .5em 0 .5em 0;
+          width: 500px;
+          border: 1px solid $darkestBlue;
+          background-color: $darkestBlue;
+          cursor: pointer;
+          -webkit-transition: background-color .5s ease-out;
+          -moz-transition: background-color .5s ease-out;
+          -o-transition: background-color .5s ease-out;
+          transition: background-color .5s ease-out;
+
+          &:hover{
+            background-color: $lightBlue;
+
+            a{
+              color:black;
+            }
+          }
+
+          a{
+            text-decoration: none;
+            color: $offWhite
+          }
+      }
+    }
+  }
 }
