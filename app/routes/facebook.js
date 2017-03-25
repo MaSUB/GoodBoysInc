@@ -12,7 +12,7 @@ router.get('/facebook', function(req, res) {
 
 router.post('/facebook/info', function(req, res){
 	var obj = {asdf : "asdf"};
-	var file = '/../data/faceFeed.json';
+  var file = './../GoodBoysInc/app/data/facefeed.json';
       jsonfile.writeFile(file, obj, function(err){
         console.error(err);
       });
@@ -21,4 +21,3 @@ router.post('/facebook/info', function(req, res){
 });
 
 module.exports = router;
-
