@@ -1,3 +1,4 @@
+
 $darkestBlue: #2a4d69;
 $darkBlue:    #4b86b4;
 $blue:        #63ace5;
@@ -12,13 +13,19 @@ $paragraphFont:'Raleway', sans-serif;
 $HeadingColor: black;
 $paragraphColor: black;
 
-body{
-    margin: 0;
-    background-color: $darkBlue;
+html,body{
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  background-color: $darkBlue;
+  margin:0;
+  padding:0;
+  height:100%;
+  min-height: 100%;
 }
 
 h1{
-    font-family:$headingFont;
+  font-family:$headingFont;
 }
 
 a, p{
@@ -27,53 +34,53 @@ a, p{
 }
 
 .header{
-    padding-top: 1em;
-    margin: 0 0 1em 0;
-    text-align: center;
-    background-color:$lightBlue;
+  padding-top: 1em;
+  margin: 0 0 1em 0;
+  text-align: center;
+  background-color:$lightBlue;
 
     #page-title{
-        font-size: 5em;
-        color: $offWhite;
-        font-family:$titleFont;
-        background-color:$lightBlue;
+      font-size: 5em;
+      color: $offWhite;
+      font-family:$titleFont;
+      background-color:$lightBlue;
     }
     .nav-bar{
-        border-bottom:3px solid $darkBlue;
-        border-top: 3px solid $darkBlue;
-        background-color:$blue;
+      border-bottom:3px solid $darkBlue;
+      border-top: 3px solid $darkBlue;
+      background-color:$blue;
 
-        .nav-bar-item {
-          display: inline-block;
-          margin: .5em 0 .5em 0;
-          padding: .5em 0 .5em 0;
-          width: 10em;
-          background-color: $darkestBlue;
+      .nav-bar-item {
+        display: inline-block;
+        margin: .5em 0 .5em 0;
+        padding: .5em 0 .5em 0;
+        width: 10em;
+        background-color: $darkestBlue;
+        -webkit-transition: background-color .5s ease-out;
+        -moz-transition: background-color .5s ease-out;
+        -o-transition: background-color .5s ease-out;
+        transition: background-color .5s ease-out;
 
-          //
-          //  eventually I want to add a slower fade transition to the
-          //  color change.
-          //
-          &:hover{
-            background-color: $lightestBlue;
+      &:hover{
+        background-color: $lightestBlue;
 
-            a{
-              color:black;
-            }
-          }
 
-          a{
-            text-decoration: none;
-            color: $offWhite
-          }
-
+        a{
+          color:black;
         }
+      }
 
+      a{
+        text-decoration: none;
+        color: $offWhite
+      }
     }
+  }
 }
 
 .content{
   margin: 0 10% 0 10%;
+  padding-bottom: 50px;
 
   .content-text{
     font-family: $paragraphFont;
@@ -91,6 +98,7 @@ a, p{
   }
 
   .content-row{
+    width: 100%;
     background-color: $lightBlue;
     height: auto;
     padding: 1em;
@@ -100,6 +108,7 @@ a, p{
     .content-text-split{
       width:50%;
       float:left;
+
       p{
         margin: 0px;
         font-size: 1em;
@@ -112,4 +121,105 @@ a, p{
     }
   }
 
+}
+
+.footer{
+  padding: 1em;
+  background-color: $blue;
+  width: 97.7%;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
+
+  .footer-left{
+    width:70%;
+    display: inline-block;
+
+    .footer-text{
+      padding: 0px;
+      margin:0px;
+      font-size: .75em;
+      color: black;
+    }
+  }
+  .footer-right{
+    float:  right;
+    width: 20%;
+    text-align: right;
+    display: inline-block;
+
+    .footer-text{
+      color: black;
+      font-size: 25px;
+      a:visited {
+        color: black;
+      }
+    }
+  }
+}
+
+#git-link{
+  width: 25px;
+}
+
+
+//
+//  Information page sass starts here :)
+//
+.content-row-info{
+  width: 100%;
+  background-color: $lightBlue;
+  height: auto;
+  margin: 1em 0 1em 0;
+  display: inline-block;
+}
+
+.info-wrapper{
+  padding:1em;
+
+  .info-form{
+    text-align: center;
+    width: 100%;
+
+    .form-row{
+      width:100%;
+
+      .input-row{
+        width: 500px;
+        height: 25px;
+        margin: .5em 0;
+      }
+      #info-area{
+        height: 250px;
+      }
+
+      .form-submit{
+          display: inline-block;
+          margin: .5em 0 .5em 0;
+          padding: .5em 0 .5em 0;
+          width: 500px;
+          border: 1px solid $darkestBlue;
+          background-color: $darkestBlue;
+          cursor: pointer;
+          -webkit-transition: background-color .5s ease-out;
+          -moz-transition: background-color .5s ease-out;
+          -o-transition: background-color .5s ease-out;
+          transition: background-color .5s ease-out;
+
+          &:hover{
+            background-color: $lightBlue;
+
+            a{
+              color:black;
+            }
+          }
+
+          a{
+            text-decoration: none;
+            color: $offWhite
+          }
+      }
+    }
+  }
 }

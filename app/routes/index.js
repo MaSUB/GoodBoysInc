@@ -10,4 +10,12 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/information', function(req, res) {
+  res.render('information', {
+
+    pageTitle:'Info',
+    pageID: 'info'
+  });
+});
+
 module.exports = router;
