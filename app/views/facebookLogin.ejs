@@ -117,7 +117,7 @@ function checkStatus(){
 
 function getPosts(){
   var jsonObj = {
-    profile:[]
+    content_Items:[]
   };
   FB.api(
     "/me/posts",
@@ -128,7 +128,7 @@ function getPosts(){
             if(post.hasOwnProperty("message")){
               var messageString = JSON.stringify(post.message);
               console.log(messageString);
-              jsonObj['profile'].push({"message" : messageString});
+              jsonObj['content_Items'].push({"content" : messageString});
             }
         }
         nextPage = response.paging.next;
@@ -141,7 +141,7 @@ function getPosts(){
                   if(post.hasOwnProperty("message")){
                     var messageString = JSON.stringify(post.message);
                     console.log(messageString);
-                    jsonObj['profile'].push({"message" : messageString});
+                    jsonObj['content_Items'].push({"content" : messageString});
                   }
               }
               nextPage = response.paging.next;
@@ -154,7 +154,7 @@ function getPosts(){
                         if(post.hasOwnProperty("message")){
                           var messageString = JSON.stringify(post.message);
                           console.log(messageString);
-                          jsonObj['profile'].push({"message" : messageString});
+                          jsonObj['content_Items'].push({"content" : messageString});
                         }
                     }
                     nextPage = response.paging.next;
@@ -165,7 +165,7 @@ function getPosts(){
                     $.ajax({
                       type: 'POST',
                       dataType: "json",
-                      contentType: "application/x-www-form-urlencoded",
+                      contentType: "application/json",
                       url: 'http://localhost:3000/facebook/info',
 						          data: JSON.stringify(jsonObj),
                       success: function(data) {

@@ -51,7 +51,7 @@ router.get('/personality/facebook', function(req, res, next){
       console.log('Error:', error);
     else{
       var anger = response.personality[0].name;
-      //console.log(JSON.stringify(response, null, 2));
+      console.log("Here" + JSON.stringify(response, null, 2));
 
     }
   });
