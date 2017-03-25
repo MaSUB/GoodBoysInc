@@ -7,11 +7,12 @@ var personality_insights = new PersonalityInsightsV3({
   version_date: '2016-10-20'
 });
 
-router.get('/personality', function(req, res, next){
+router.get('/personality/twitter', function(req, res, next){
 
   var params = {
+
     // Get the content items from the JSON file.
-    content_items: require('./../data/twitterPersonal.json').content_Items,
+    content_items: require('./../data/twitFeed.json').content_Items,
     consumption_preferences: true,
     raw_scores: true,
     headers: {
@@ -25,8 +26,58 @@ router.get('/personality', function(req, res, next){
       console.log('Error:', error);
     else{
       var anger = response.personality[0].name;
-      console.log(JSON.stringify(response, null, 2));
-      //console.log(anger);
+      //console.log(JSON.stringify(response, null, 2));
+
+    }
+  });
+});
+
+router.get('/personality/facebook', function(req, res, next){
+
+  var params = {
+
+    // Get the content items from the JSON file.
+    content_items: require('./../data/faceFeed.json').content_Items,
+    consumption_preferences: true,
+    raw_scores: true,
+    headers: {
+      'accept-language': 'en',
+      'accept': 'application/json'
+    }
+  };
+
+  personality_insights.profile(params, function(error, response) {
+    if (error)
+      console.log('Error:', error);
+    else{
+      var anger = response.personality[0].name;
+      //console.log(JSON.stringify(response, null, 2));
+
+    }
+  });
+});
+
+router.get('/personality/about', function(req, res, next){
+
+  var params = {
+
+    // Get the content items from the JSON file.
+    content_items: require('./../data/aboutFeed.json').content_Items,
+    consumption_preferences: true,
+    raw_scores: true,
+    headers: {
+      'accept-language': 'en',
+      'accept': 'application/json'
+    }
+  };
+
+  personality_insights.profile(params, function(error, response) {
+    if (error)
+      console.log('Error:', error);
+    else{
+      var anger = response.personality[0].name;
+      //console.log(JSON.stringify(response, null, 2));
+
     }
   });
 });

@@ -11,13 +11,25 @@ router.get('/facebook', function(req, res) {
 });
 
 router.post('/facebook/info', function(req, res){
-	var obj = {asdf : "asdf"};
+
+  /* create object */
+  // var faceObj = {
+  //   content_Items:[]
+  // };
+  // req.body.forEach(function(value){
+  //   faceObj.content_Items.push({content: value.text});
+  // });
+
+  /* Write obj to file */
   var file = './../GoodBoysInc/app/data/facefeed.json';
-      jsonfile.writeFile(file, obj, function(err){
-        console.error(err);
-      });
-	//console.log('body: ' + JSON.stringify(req.body));
-	res.send(req.body);
+  jsonfile.writeFile(file, req.body, function(err){
+     console.error(err);
+  });
+
+  //res.send(req.body);
+
+  /* Send to Watson */
+  res.redirect('/personality/facebook');
 });
 
 module.exports = router;
