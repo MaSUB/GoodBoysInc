@@ -12,7 +12,7 @@ router.get('/facebook', function(req, res) {
 
 router.post('/facebook/info', function(req, res){
 
-  console.log(req.body);
+  //console.log(req.body);
   /* Write obj to file */
   var file = './../GoodBoysInc/app/data/facefeed.json';
   jsonfile.writeFile(file, req.body, function(err){

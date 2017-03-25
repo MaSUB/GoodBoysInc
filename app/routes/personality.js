@@ -26,7 +26,7 @@ router.get('/personality/twitter', function(req, res, next){
       console.log('Error:', error);
     else{
       //console.log(JSON.stringify(response, null, 2));
-
+      res.redirect('/facebook');
     }
   });
 });
@@ -50,6 +50,7 @@ router.get('/personality/facebook', function(req, res, next){
       console.log('Error:', error);
     else{
       //console.log("Here" + JSON.stringify(response, null, 2));
+      res.redirect('/information');
     }
   });
 });
@@ -73,7 +74,7 @@ router.get('/personality/about', function(req, res, next){
       console.log('Error:', error);
     else{
       console.log(JSON.stringify(response, null, 2));
-
+      res.send("done");
     }
   });
 });
