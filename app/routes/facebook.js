@@ -14,7 +14,7 @@ router.post('/facebook/info', function(req, res){
 
   console.log(req.body);
   /* Write obj to file */
-  var file = './../GoodBoysInc/app/data/facefeed.json';
+  var file = './../GoodBoysInc/app/data/faceFeed.json';
   jsonfile.writeFile(file, req.body, function(err){
      console.error(err);
   });
