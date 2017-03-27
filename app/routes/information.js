@@ -16,8 +16,9 @@ router.post('/information/info', function(req, res){
   };
   aboutObj. content_Items.push({content: req.body.aboutYou});
 
-  var file = './../GoodBoysInc/app/data/aboutFeed.json';
   /* Write obj to file */
+  var file = './../GoodBoysInc/app/data/aboutFeed.json';
+  //var file = '/home/ubuntu/workspace/app/data/aboutFeed.json';
   jsonfile.writeFile(file, aboutObj, function(err){
      console.error(err);
   });
