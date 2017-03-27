@@ -3,7 +3,7 @@
 <html>
     <head>
         <title> <%= siteTitle %>--<%= pageTitle %></title>
-        <link rel="stylesheet" type="text/css" href="/css/facebookStyles.css">
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -50,11 +50,8 @@
         <div class="content-row">
           <h2 class="content-header">Facebook Personality Retriever</h2>
           <div class="content-text-split">
-            <button onclick="userLogin()">Login and Authorize Facebook</button>
-            <br />
-            <button onclick="checkStatus()">Continue</button>
-            <br />
-            <br />
+            <button class="facebook-btn" onclick="userLogin()">Login and Authorize Facebook</button>
+            <button class="facebook-btn" onclick="checkStatus()">Continue</button>
             <p> Like and share us on Facebook!</p>
             <div
             class="fb-like"
