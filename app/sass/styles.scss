@@ -272,3 +272,34 @@ a, p{
     }
   }
 }
+
+
+.facebook-btn{
+    display: block;
+    margin: .5em 0 .5em 0;
+    padding: .5em 0 .5em 0;
+    width: 250px;
+    color: $offWhite;
+    font-size: 1em;
+    font-family: $paragraphFont;
+
+    @media only screen and (max-width: 725px) {
+      width: 75%;
+      margin: .5em 10% .5em 10%;
+      color:white;
+      font-size: .75em;
+    }
+
+    border: 1px solid $darkestBlue;
+    background-color: $darkestBlue;
+    cursor: pointer;
+    -webkit-transition: background-color .5s ease-out;
+    -moz-transition: background-color .5s ease-out;
+    -o-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out;
+
+    &:hover{
+      background-color: $lightBlue;
+      color: black;
+    }
+}
