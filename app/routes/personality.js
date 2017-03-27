@@ -49,7 +49,7 @@ router.get('/personality/facebook', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      //console.log("Here" + JSON.stringify(response, null, 2));
+      console.log("Here" + JSON.stringify(response, null, 2));
       res.redirect('/information');
     }
   });

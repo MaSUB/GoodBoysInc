@@ -165,13 +165,18 @@ function nextPageCall(nextPage){
               jsonObj['content_Items'].push({"content" : messageString});
             }
         }
-        nextPage = response.paging.next;
-        console.log(wordCount);
-        if(wordCount < 800){
-          nextPageCall(nextPage);
-        } else {
-          callDone()
+        if("undefined" !== typeof messageString  ){
+          nextPage = response.paging.next;
+          console.log(wordCount);
+          if(wordCount < 800){
+            nextPageCall(nextPage);
+          } else {
+            callDone()
+          }
+        }else{
+          callDone();
         }
+
       } else {
         alert("error");
       }
@@ -180,7 +185,7 @@ function nextPageCall(nextPage){
 
 function callDone(){
   console.log("done");
-  console.log(JSON.stringify(jsonObj));
+  //console.log(JSON.stringify(jsonObj));
 
   //jquery
   $.ajax({
@@ -192,6 +197,7 @@ function callDone(){
     success: function(data) {
         console.log('success');
         //console.log(JSON.stringify(data));
+        window.location.replace("http://localhost:3000/information");
       }
   });
 }

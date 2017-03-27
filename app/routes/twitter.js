@@ -92,7 +92,7 @@ router.get('/auth/twitter/info',function(req,res,next){
       /* write out to file */
       var file = './../GoodBoysInc/app/data/twitFeed.json';
       jsonfile.writeFile(file, twitObj, function(err){
-        console.error(err);
+        if(err){console.error(err);}
       });
 
       /* Send to Watson */
