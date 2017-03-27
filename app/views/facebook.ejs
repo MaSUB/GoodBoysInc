@@ -35,7 +35,7 @@ function getPosts(){
             if(post.hasOwnProperty("message")){
               var messageString = JSON.stringify(post.message);
               console.log(messageString);
-              jsonObj['profile'].push({"message" : messageString});
+              jsonObj['content_Items'].push({"content" : messageString});
             }
         }
         nextPage = response.paging.next;
@@ -48,7 +48,7 @@ function getPosts(){
                   if(post.hasOwnProperty("message")){
                     var messageString = JSON.stringify(post.message);
                     console.log(messageString);
-                    jsonObj['profile'].push({"message" : messageString});
+                    jsonObj['content_Items'].push({"content" : messageString});
                   }
               }
               nextPage = response.paging.next;
@@ -61,7 +61,7 @@ function getPosts(){
                         if(post.hasOwnProperty("message")){
                           var messageString = JSON.stringify(post.message);
                           console.log(messageString);
-                          jsonObj['profile'].push({"message" : messageString});
+                          jsonObj['content_Items'].push({"content" : messageString});
                         }
                     }
                     nextPage = response.paging.next;

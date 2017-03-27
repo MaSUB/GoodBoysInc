@@ -172,6 +172,8 @@ a, p {
         margin: .5em 0 .5em 0;
         padding: .5em 0 .5em 0;
         width: 500px;
+        color: #F5F5F5;
+        font-size: 1em;
         border: 1px solid #2a4d69;
         background-color: #2a4d69;
         cursor: pointer;
