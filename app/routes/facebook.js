@@ -5,7 +5,7 @@ var session = require('client-sessions');
 
 router.get('/facebook', function(req, res) {
   res.render('facebookLogin', {
-    pageTitle:'facebookLogin',
+    pageTitle:'FacebookLogin',
     pageID: 'facebook'
   });
 });
