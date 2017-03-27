@@ -11,7 +11,6 @@ router.get('/facebook', function(req, res) {
 });
 
 router.post('/facebook/info', function(req, res){
-  res.send('Got It!');
   //console.log(req.body);
   /* Write obj to file */
   var file = './../GoodBoysInc/app/data/facefeed.json';
@@ -20,9 +19,8 @@ router.post('/facebook/info', function(req, res){
      if(err){console.error(err);}
      console.log('here');
   });
-  //res.send(req.body);
   /* Send to Watson */
-
+  res.redirect('/personality/facebook');
 });
 
 module.exports = router;

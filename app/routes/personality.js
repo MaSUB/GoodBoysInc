@@ -50,8 +50,9 @@ router.get('/personality/facebook', function(req, res, next){
       console.log('Error:', error);
     else{
       console.log("Here" + JSON.stringify(response, null, 2));
-      res.redirect('/information');
+      //no need to redirect here the jQuery client side messes with the response.
     }
+    res.redirect('/information');
   });
 });
 
@@ -74,8 +75,9 @@ router.get('/personality/about', function(req, res, next){
       console.log('Error:', error);
     else{
       console.log(JSON.stringify(response, null, 2));
-      res.send("done");
+
     }
+    res.send("done");
   });
 });
 

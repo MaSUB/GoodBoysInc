@@ -194,12 +194,13 @@ function callDone(){
     contentType: "application/json",
     url: 'http://localhost:3000/facebook/info',
     data: JSON.stringify(jsonObj),
-    success: function(data) {
-        console.log('success');
-        //console.log(JSON.stringify(data));
-        window.location.replace("http://localhost:3000/information");
-      }
+    // success: function(data) {
+    //     console.log('success');
+    //     //console.log(JSON.stringify(data));
+    //     window.location.replace("http://localhost:3000/information");
+    //   }
   });
+  window.location.replace("http://localhost:3000/information");
 }
 
 </script>
