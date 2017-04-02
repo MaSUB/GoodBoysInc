@@ -1,26 +1,38 @@
 $(document).ready(function() {
     
+    var twitObj = getTwitterObj();
+    var faceObj = getFacebookObj();
+    var aboutObj = getAboutObj();
+    
+    
 	
 		
 });
 
 function getTwitterObj(){
   	
-  		$.ajax({
-    		type: 'POST',
-    		dataType: "json",
-    		contentType: "application/json",
-    		//url: 'http://localhost:3000/report/twitter',
-    		url: 'https://goodboysinc-mws5966.c9users.io/report/twitter',
-    		data: JSON.stringify(jsonObj),
-    		success: function(data) {
-    			console.log('got twitter object');
-    		}
-  		});
-	}
+  	var obj;
+  	
+  	$.ajax({
+		type: 'POST',
+		dataType: "json",
+		contentType: "application/json",
+		//url: 'http://localhost:3000/report/twitter',
+		url: 'https://goodboysinc-mws5966.c9users.io/report/twitter',
+		data: JSON.stringify(jsonObj),
+		success: function(data) {
+			console.log('got twitter object');
+			obj = data;
+		}
+  	});
+  	
+  	return	obj;
+}
 	
 function getFacebookObj(){
 
+    var obj;
+    
   	$.ajax({
 		type: 'POST',
 		dataType: "json",
@@ -30,12 +42,17 @@ function getFacebookObj(){
 		data: JSON.stringify(jsonObj),
 		success: function(data) {
 			console.log('got facebook object');
+			obj = data 
 		}
   	});
+  	
+  	return obj; 
 }
 
 function getAboutObj(){
 
+    var obj;
+    
   	$.ajax({
 		type: 'POST',
 		dataType: "json",
@@ -45,6 +62,9 @@ function getAboutObj(){
 		data: JSON.stringify(jsonObj),
 		success: function(data) {
 			console.log('got about object');
+			obj = data;
 		}
   	});
+  	
+  	return obj;
 }
