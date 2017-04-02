@@ -9,8 +9,8 @@ var OAuth = require('oauth').OAuth
       "FvXUtpAcjxQbA7Pljd7BnR4nU",
       "hpnmzytHudEjtX5LSyWRAY6uqcwuUe06PZSLSeryt8NhTPrR3K",
       "1.0",
-      "http://localhost:3000/auth/twitter/callback",
-      //"https://goodboysinc-mws5966.c9users.io/auth/twitter/callback",
+      //"http://localhost:3000/auth/twitter/callback",
+      "https://goodboysinc-mws5966.c9users.io/auth/twitter/callback",
       "HMAC-SHA1"
     );
 
@@ -91,8 +91,8 @@ router.get('/auth/twitter/info',function(req,res,next){
       });
 
       /* write out to file */
-      var file = './../GoodBoysInc/app/data/twitFeed.json';
-      //var file = '/home/ubuntu/workspace/app/data/twitFeed.json';
+      //var file = './../GoodBoysInc/app/data/twitFeed.json';
+      var file = '/home/ubuntu/workspace/app/data/twitFeed.json';
       jsonfile.writeFile(file, twitObj, function(err){
         if(err){console.error(err);}
       });

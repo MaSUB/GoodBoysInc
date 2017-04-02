@@ -25,7 +25,7 @@ router.get('/personality/twitter', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      //console.log(JSON.stringify(response, null, 2));
+      console.log(JSON.stringify(response, null, 2));
       console.log("twitFeed sent");
       res.redirect('/facebook');
     }

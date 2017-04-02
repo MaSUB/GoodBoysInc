@@ -17,15 +17,15 @@ router.post('/information/info', function(req, res){
   aboutObj. content_Items.push({content: req.body.aboutYou});
 
   /* Write obj to file */
-  var file = './../GoodBoysInc/app/data/aboutFeed.json';
-  //var file = '/home/ubuntu/workspace/app/data/aboutFeed.json';
+  //var file = './../GoodBoysInc/app/data/aboutFeed.json';
+  var file = '/home/ubuntu/workspace/app/data/aboutFeed.json';
   jsonfile.writeFile(file, aboutObj, function(err){
      console.error(err);
   });
   console.log("First Name " + req.body.fname);
   console.log("Last Name " + req.body.lname);
   console.log("Email " + req.body.email);
-  console.log("About" + req.body.aboutYou);
+  console.log("About " + req.body.aboutYou);
 
   /* Send to Watson */
   res.redirect('/personality/about');
