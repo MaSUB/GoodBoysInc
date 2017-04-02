@@ -26,7 +26,7 @@ app.use(require('./routes/personality'));
 app.use(require('./routes/twitter'));
 app.use(require('./routes/facebook'));
 app.use(require('./routes/information'));
-
+app.use(require('./routes/report'));
 
 
 var server = app.listen(app.get('port'), function() {
