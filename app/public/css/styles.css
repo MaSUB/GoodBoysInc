@@ -161,6 +161,12 @@ a, p {
             width: 75%;
             height: 25px;
             margin: .5em 0; } }
+      /*ZACHS PROBABLY BAD STUFF BELOW*/
+      .info-wrapper .info-form .form-row .input-inRow {
+        width: 200px;
+        height: 25px;
+        margin: .5em 0; }
+      /*ZACHS PROBABLY BAD STUFF ABOVE*/
       .info-wrapper .info-form .form-row #info-area {
         height: 250px;
         font-family: "Raleway", sans-serif;
