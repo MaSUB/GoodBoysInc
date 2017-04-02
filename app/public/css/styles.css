@@ -191,4 +191,29 @@ a, p {
           text-decoration: none;
           color: #F5F5F5; }
 
+.facebook-btn {
+  display: block;
+  margin: .5em 0 .5em 0;
+  padding: .5em 0 .5em 0;
+  width: 250px;
+  color: #F5F5F5;
+  font-size: 1em;
+  font-family: "Raleway", sans-serif;
+  border: 1px solid #2a4d69;
+  background-color: #2a4d69;
+  cursor: pointer;
+  -webkit-transition: background-color .5s ease-out;
+  -moz-transition: background-color .5s ease-out;
+  -o-transition: background-color .5s ease-out;
+  transition: background-color .5s ease-out; }
+  @media only screen and (max-width: 725px) {
+    .facebook-btn {
+      width: 75%;
+      margin: .5em 10% .5em 10%;
+      color: white;
+      font-size: .75em; } }
+  .facebook-btn:hover {
+    background-color: #adcbe3;
+    color: black; }
+
 /*# sourceMappingURL=styles.css.map */
