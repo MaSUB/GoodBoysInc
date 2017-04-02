@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <title> <%= siteTitle %>--<%= pageTitle %></title>
+      <link rel="stylesheet" type="text/css" href="/css/styles.css">
+      <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  </head>
+    <body id="<%= pageID %>">
+	<div id="Page" style="position: absolute; width: 555px; height: 802px; border: 1px solid black; padding: 20px;">
+		<div id="Title" style="position: relative;">
+			<h1>Good Boys Inc.</h1>
+			<p class="text1"><b>Background Screening Report</b></p>
+		</div>
+
+		<div id="ReportInfo" style="position: relative;">
+			<p class="text1" id="ReportNum">Report Number: </p>
+			<p class="text1" id="ReportFor">Report for: </p>
+		</div>
+
+		<hr>
+
+		<div id="ApplicantInfo" style="position: relative;">
+			<h2 style="text-align:center;">Applicant Information</h2>
+
+			<hr>
+
+			<div class="halfCol" style="position: relative;">
+				<p class="text2" id="Applicant">Applicant:</p>
+				<p class="text2" id="Facebook">Facebook:</p>
+				<p class="text2" id="Twitter">Twitter:</p>
+
+				<p class="text2"><br></p>
+
+				<p class="text2" id="Email">Email:</p>
+				<p class="text2" id="AddressL1">Address:</p>
+			</div>
+
+			<div class="halfCol" style="position: relative;">
+				<p class="text2" id="Phone">Phone Number:</p>
+				<p class="text2"><br></p>
+				<p class="text2"><br></p>
+				<p class="text2"><br></p>
+				<p class="text2"><br></p>
+				<p class="text2" id="AddressL2">City/State/Zip:</p>
+			</div>
+		</div>
+
+		<hr>
+
+		<div id="ReportSummary" style="position: relative;">
+			<h2 style="text-align:center;">Report Summarization</h2>
+
+			<hr>
+
+			<p class="text3" style="text-align:center;"><b>Decision Report</b></p>
+
+			<hr>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="text3" id="Decision1"><b>Decision:</b></p>
+				<p class="text3"><b>Category</b></p>
+				<p class="text3">Agreeableness:</p>
+				<p class="text3">Conscientiousness:</p>
+				<p class="text3">Extraversion:</p>
+				<p class="text3">Neuroticism:</p>
+				<p class="text3">Openness:</p>
+
+			</div>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="text3"><br></p>
+				<p class="text3"><b>Results:</b></p>
+				<p class="text3"><br></p>
+				<p class="text3"><br></p>
+				<p class="text3"><br></p>
+				<p class="text3"><br></p>
+				<p class="text3"><br></p>
+
+			</div>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="text3"><br></p>
+				<p class="text3"><b>Twitter</b></p>
+				<p class="text3" id="AgreeableT"><br></p>
+				<p class="text3" id="ConscientiousnessT"><br></p>
+				<p class="text3" id="ExtraversionT"><br></p>
+				<p class="text3" id="NeuroticismT"><br></p>
+				<p class="text3" id="OpennessT"><br></p>
+
+			</div>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="text3"><br></p>
+				<p class="text3"><b>Facebook</b></p>
+				<p class="text3" id="AgreeableF"><br></p>
+				<p class="text3" id="ConscientiousnessF"><br></p>
+				<p class="text3" id="ExtraversionF"><br></p>
+				<p class="text3" id="NeuroticismF"><br></p>
+				<p class="text3" id="OpennessF"><br></p>
+
+			</div>
+
+			<hr>
+
+			<p class="text3" style="text-align:center;"><b>"About Me" Insights</b></p>
+
+			<hr>
+
+			<div class="thirdCol" style="position: relative;">
+				<p class="text3" id="Decision2"><b>Decision:</b></p>
+				<p class="text3"><br></p>
+				<p class="text3" id="AgreeablenessMe">Agreeableness:</p>
+				<p class="text3" id="ConscientiousnessMe">Conscientiousness:</p>
+				<p class="text3" id="ExtraversionMe">Extraversion:</p>
+				<p class="text3" id="NeuroticismMe">Neuroticism:</p>
+				<p class="text3" id="OpennessMe">Openness:</p>
+				<p class="text3" id="NeedClosenessMe">Need Closeness:</p>
+				<p class="text3" id="OpennessToChangeMe">Openness to Change:</p>
+			</div>
+
+			<div class="thirdCol" style="position: relative;">
+				<p class="text3"><br></p>
+				<p class="text3"><br></p>
+				<p class="text3" id="VolunteerMe">Volunteer:</p>
+				<p class="text3"><u>Emotion Analysis</u></p>
+				<p class="text3" id="AngerMe">Anger: </p>
+				<p class="text3" id="DisgustMe">Disgust: </p>
+				<p class="text3" id="FearMe">Fear: </p>
+				<p class="text3" id="JoyMe">Joy: </p>
+				<p class="text3" id="SadnessMe">Sadness: </p>
+			</div>
+
+			<div class="thirdCol" style="position: relative;">
+				<p class="text3"><br></p>
+				<p class="text3"><br></p>
+				<p class="text3"><u>Sentiment Analysis</u></p>
+				<p class="text3"  id="MixedMe">Mixed</p>
+				<p class="text3" id="ScoreMe">Score</p>
+				<p class="text3" id="TypeMe">Type</p>
+				<p class="text3"><br></p>
+				<p class="text3" id="Result"><b>Algorithm Result: </b></p>
+				<p class="text3" id="Suitable"><b>Suitable Owner: </b></p>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.halfCol
+		{
+			float: left;
+			width: 50%;
+		}
+		.thirdCol
+		{
+			float: left;
+			width: 33%;
+		}
+		.quarterCol
+		{
+			float: left;
+			width: 25%;
+		}
+		.header1
+		{
+			font-size: 24px;
+			font-family: "Arial";
+		}
+		.header2
+		{
+			font-size: 12px;
+			font-family: "Arial";
+		}
+		.text1
+		{
+			font-size: 12px;
+			font-family: "Arial";
+		}
+		.text2
+		{
+			font-size: 11px;
+			font-family: "Arial";
+		}
+		.text3
+		{
+			font-size: 10px;
+			font-family: "Arial";
+		}
+	</style>
+
+	<script>
+		$("h1").addClass("header1");
+		$("h2").addClass("header2");
+	</script>
+
+	</body>
+</html>
