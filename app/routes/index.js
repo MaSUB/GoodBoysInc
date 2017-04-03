@@ -10,13 +10,6 @@ router.get('/', function(req, res) {
   });
 });
 
-router.get('/information', function(req, res) {
-  res.render('information', {
-
-    pageTitle:'Info',
-    pageID: 'info'
-  });
-});
 
 router.get('/report', function(req, res) {
   res.render('report', {

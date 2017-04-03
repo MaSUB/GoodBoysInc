@@ -40,19 +40,27 @@
                 <h2 class="content-header">Please Enter Required Information</h2>
                 <div class="info-form">
                   <div class="form-row">
-                    <input class="input-row" type="text" placeholder="First Name" name="fname"/>
+                    <input class="input-inRow" type="text" placeholder="First Name" name="fname"/>
+                    <input class="input-inRow" type="text" placeholder="Last Name" name="lname">
+                    <input class="input-inRow" type="text" placeholder="Phone Number" name="pNumber">
                   </div>
                   <div class="form-row">
-                    <input class="input-row" type="text" placeholder="Last Name" name="lname">
+                    <input class="input-inRow" type="text" placeholder="Paste Facebook Link" name="fbLink"/>
+                    <input class="input-inRow" type="text" placeholder="Twitter @name" name="tLink"/>
                   </div>
                   <div class="form-row">
-                    <input class="input-row" type="email" placeholder="Email" name="email">
+                    <input class="input-inRow" type="email" placeholder="Email" name="email">
                   </div>
                   <div class="form-row">
-                    <textarea class="input-row" id="info-area" placeholder="Talk about yourself" name="aboutYou" cols="30" rows="5"></textarea>
+                    <input class="input-inRow" type="email" placeholder="Address" name="address1">
+                    <input class="input-inRow" type="email" placeholder="City, State, Zip" name="address2">
                   </div>
                   <div class="form-row">
-                      <input class="form-submit" type="submit" value="Submit">
+                    <textarea class="input-row word_count" id="info-area" placeholder="Talk about yourself - Will not submit if under 600 words!" name="aboutYou" cols="30" rows="5"></textarea>
+                    <div id="example1_count" style="display:none"></div>
+                  </div>
+                  <div class="form-row">
+                      <input class="form-submit" id="sub_button" type="submit" value="Submit">
                   </div>
                 </div>
               </div>
@@ -79,3 +87,33 @@
         <script src="/reload/reload.js/"></script>
     </body>
 </html>
+
+<script>
+  $(document).ready(function() {
+
+    $('.word_count').each(function() {
+        var input = '#' + this.id;
+        var count = '#example1_count';
+        $(count).show();
+        word_count(input, count);
+        $(this).keyup(function() { word_count(input, count) });
+    });
+
+});
+
+function word_count(field, count) {
+
+    var number = 0;
+    var matches = $(field).val().match(/\b/g);
+    if(matches) {
+        number = matches.length/2;
+    }
+    $(count).text( number + ' word' + (number != 1 ? 's' : '') + ' approx');
+    
+    if(number > 599){
+      $("#sub_button").attr("disabled", false)
+    } else {
+      $("#sub_button").attr("disabled", true)
+    }
+}
+</script>

@@ -75,132 +75,132 @@
     </body>
 </html>
 <script>
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1776987122628805',
-    xfbml      : true,
-    version    : 'v2.8'
-  });
-  FB.AppEvents.logPageView();
-};
-
-(function(d, s, id){
-   var js, fjs = d.getElementsByTagName(s)[0];
-   if (d.getElementById(id)) {return;}
-   js = d.createElement(s); js.id = id;
-   js.src = "https://connect.facebook.net/en_US/sdk.js";
-   fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));
-
-function userLogin(){
-  FB.login(function(response) {
-  }, {scope: 'user_posts'});
-}
-
-function checkStatus(){
-  FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-      uid = response.authResponse.userID;
-      accessToken = response.authResponse.accessToken;
-      console.log("connected");
-      getPosts();
-    } else if (response.status === 'not_authorized') {
-      alert("You did not authorize Facebook correctly. Please remove the app from within your Facebook settings and try again");
-    } else {
-      alert("Facebook not connected, please log in");
-    }
-   });
-}
-
-var jsonObj = {
-  content_Items:[]
-};
-
-var wordCount = 0;
-
-function getPosts(){
-  FB.api(
-    "/me/posts",
-    function (response){
-      if (response && !response.error) {
-        for (element in response.data){
-            var post = response.data[element];
-            if(post.hasOwnProperty("message")){
-              var messageString = JSON.stringify(post.message);
-              for(var i = 0; i < messageString.length - 1; i++){
-                if(messageString.charAt(i) == ' ' && messageString.charAt(i+1) != ' '){
-                  wordCount += 1;
-                }
-              }
-              jsonObj['content_Items'].push({"content" : messageString});
-            }
-        }
-        nextPage = response.paging.next;
-        console.log(wordCount);
-        nextPageCall(nextPage);
-
-      } else {
-        alert("error");
-      }
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1776987122628805',
+      xfbml      : true,
+      version    : 'v2.8'
     });
-}
-
-function nextPageCall(nextPage){
-  FB.api(
-    nextPage,
-    function (response){
-      if (response && !response.error) {
-        for (element in response.data){
-            var post = response.data[element];
-            if(post.hasOwnProperty("message")){
-              var messageString = JSON.stringify(post.message);
-              for(var i = 0; i < messageString.length - 1; i++){
-                if(messageString.charAt(i) == ' ' && messageString.charAt(i+1) != ' '){
-                  wordCount += 1;
+    FB.AppEvents.logPageView();
+  };
+  
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  
+  function userLogin(){
+    FB.login(function(response) {
+    }, {scope: 'user_posts'});
+  }
+  
+  function checkStatus(){
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        uid = response.authResponse.userID;
+        accessToken = response.authResponse.accessToken;
+        console.log("connected");
+        getPosts();
+      } else if (response.status === 'not_authorized') {
+        alert("You did not authorize Facebook correctly. Please remove the app from within your Facebook settings and try again");
+      } else {
+        alert("Facebook not connected, please log in");
+      }
+     });
+  }
+  
+  var jsonObj = {
+    content_Items:[]
+  };
+  
+  var wordCount = 0;
+  
+  function getPosts(){
+    FB.api(
+      "/me/posts",
+      function (response){
+        if (response && !response.error) {
+          for (element in response.data){
+              var post = response.data[element];
+              if(post.hasOwnProperty("message")){
+                var messageString = JSON.stringify(post.message);
+                for(var i = 0; i < messageString.length - 1; i++){
+                  if(messageString.charAt(i) == ' ' && messageString.charAt(i+1) != ' '){
+                    wordCount += 1;
+                  }
                 }
+                jsonObj['content_Items'].push({"content" : messageString});
               }
-              jsonObj['content_Items'].push({"content" : messageString});
-            }
-        }
-        if("undefined" !== typeof messageString  ){
+          }
           nextPage = response.paging.next;
           console.log(wordCount);
-          if(wordCount < 800){
-            nextPageCall(nextPage);
-          } else {
-            callDone()
-          }
-        }else{
-          callDone();
+          nextPageCall(nextPage);
+  
+        } else {
+          alert("error");
         }
-
-      } else {
-        alert("error");
+      });
+  }
+  
+  function nextPageCall(nextPage){
+    FB.api(
+      nextPage,
+      function (response){
+        if (response && !response.error) {
+          for (element in response.data){
+              var post = response.data[element];
+              if(post.hasOwnProperty("message")){
+                var messageString = JSON.stringify(post.message);
+                for(var i = 0; i < messageString.length - 1; i++){
+                  if(messageString.charAt(i) == ' ' && messageString.charAt(i+1) != ' '){
+                    wordCount += 1;
+                  }
+                }
+                jsonObj['content_Items'].push({"content" : messageString});
+              }
+          }
+          if("undefined" !== typeof messageString  ){
+            nextPage = response.paging.next;
+            console.log(wordCount);
+            if(wordCount < 800){
+              nextPageCall(nextPage);
+            } else {
+              callDone()
+            }
+          }else{
+            callDone();
+          }
+  
+        } else {
+          alert("error");
+        }
+      });
+  }
+  
+  function callDone(){
+    console.log("done");
+    //console.log(JSON.stringify(jsonObj));
+    wordCount = 0;
+  
+    //jquery
+    $.ajax({
+      type: 'POST',
+      dataType: "json",
+      contentType: "application/json",
+      //url: 'http://localhost:3000/facebook/info',
+      url: 'https://goodboysinc-mws5966.c9users.io/facebook/info',
+      data: JSON.stringify(jsonObj),
+      success: function(data) {
+        console.log('sent');
+        
       }
     });
-}
-
-function callDone(){
-  console.log("done");
-  //console.log(JSON.stringify(jsonObj));
-  wordCount = 0;
-
-  //jquery
-  $.ajax({
-    type: 'POST',
-    dataType: "json",
-    contentType: "application/json",
-    //url: 'http://localhost:3000/facebook/info',
-    url: 'https://goodboysinc-mws5966.c9users.io/facebook/info',
-    data: JSON.stringify(jsonObj),
-    // success: function(data) {
-    //     console.log('success');
-    //     //console.log(JSON.stringify(data));
-    //     window.location.replace("http://localhost:3000/information");
-    //   }
-  });
-  //window.location.replace("http://localhost:3000/information");
-  window.location.replace("https://goodboysinc-mws5966.c9users.io/information");
-}
+    
+    //window.location.replace("http://localhost:3000/information");
+    window.location.replace("https://goodboysinc-mws5966.c9users.io/information");
+  }
 
 </script>

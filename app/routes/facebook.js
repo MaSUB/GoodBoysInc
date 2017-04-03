@@ -11,13 +11,17 @@ router.get('/facebook', function(req, res) {
 });
 
 router.post('/facebook/info', function(req, res){
+  
   //console.log(req.body);
+  
   /* Write obj to file */
   //var file = './../GoodBoysInc/app/data/facefeed.json';
-	var file = '/home/ubuntu/workspace/app/data/facefeed.json';
+	var file = '/home/ubuntu/workspace/app/data/faceFeed.json';
   jsonfile.writeFile(file, req.body, function(err){
      if(err){console.error(err);}
+    
   });
+  
   /* Send to Watson */
   res.redirect('/personality/facebook');
 });
