@@ -25,9 +25,8 @@ router.get('/personality/twitter', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      var anger = response.personality[0].name;
       //console.log(JSON.stringify(response, null, 2));
-
+      res.redirect('/facebook');
     }
   });
 });
@@ -50,10 +49,10 @@ router.get('/personality/facebook', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      var anger = response.personality[0].name;
-      //console.log(JSON.stringify(response, null, 2));
-
+      console.log("Here" + JSON.stringify(response, null, 2));
+      //no need to redirect here the jQuery client side messes with the response.
     }
+    res.redirect('/information');
   });
 });
 
@@ -75,10 +74,10 @@ router.get('/personality/about', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      var anger = response.personality[0].name;
-      //console.log(JSON.stringify(response, null, 2));
+      console.log(JSON.stringify(response, null, 2));
 
     }
+    res.send("done");
   });
 });
 
