@@ -59,7 +59,7 @@ router.get('/personality/facebook', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      console.log("Here" + JSON.stringify(response, null, 2));
+      //console.log("Here" + JSON.stringify(response, null, 2));
       
       /* write out to file */
       //var file = './../GoodBoysInc/app/data/faceFeed.json';
