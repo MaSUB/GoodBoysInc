@@ -11,12 +11,4 @@ router.get('/', function(req, res) {
 });
 
 
-router.get('/report', function(req, res) {
-  res.render('report', {
-
-    pageTitle:'Report',
-    pageID: 'report'
-  });
-});
-
 module.exports = router;

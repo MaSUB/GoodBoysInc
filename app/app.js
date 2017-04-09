@@ -64,6 +64,7 @@ app.use(require('./routes/twitter'));
 app.use(require('./routes/facebook'));
 app.use(require('./routes/information'));
 app.use(require('./routes/report'));
+app.use(require('./routes/login'));
 
 
 var server = app.listen(app.get('port'), function() {
