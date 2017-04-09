@@ -4,9 +4,8 @@ $(document).ready(function() {
     var faceObj = getFacebookObj();
     var aboutObj = getAboutObj();
     
-    
-	
-		
+    //jj and nick work here down 
+   
 });
 
 function getTwitterObj(){

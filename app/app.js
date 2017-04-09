@@ -4,6 +4,42 @@ var app = express();
 var bodyParser = require('body-parser');
 var clientsessions = require('client-sessions');
 var randomstring = require("randomstring");
+var mysql = require('mysql');
+
+var pool      =    mysql.createPool({
+    connectionLimit : 100, //important
+    host     : process.env.IP,
+    user     : 'mws5966',
+    password : '',
+    database : 'users',
+    debug    :  false
+});
+
+var handle_database = function (req,res,next) {
+    
+    pool.getConnection(function(err,connection){
+        if (err) {
+          res.json({"code" : 100, "status" : "Error in connection database"});
+          return;
+        }   
+
+        console.log('connected as id ' + connection.threadId);
+        
+        connection.query("select * from user",function(err,rows){
+            connection.release();
+            if(!err) {
+                res.json(rows);
+            }           
+        });
+
+        connection.on('error', function(err) {      
+              res.json({"code" : 100, "status" : "Error in connection database"});
+              return;     
+        });
+  });
+  
+  next();
+}
 
 app.set('port', process.env.PORT || 3000);
 //app.set('appData', dataFile);
@@ -20,6 +56,7 @@ app.use(clientsessions({
   duration: 30 * 60 * 1000,
   activeDuratoin: 5 * 60 * 1000,
 }));
+app.use(handle_database);
 app.use(express.static('app/public'));
 app.use(require('./routes/index'));
 app.use(require('./routes/personality'));
