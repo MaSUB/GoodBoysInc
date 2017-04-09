@@ -4,7 +4,16 @@ var app = express();
 var bodyParser = require('body-parser');
 var clientsessions = require('client-sessions');
 var randomstring = require("randomstring");
-
+var mysql = require('mysql'), // node-mysql module
+    myConnection = require('express-myconnection'), // express-myconnection module
+    dbOptions = {
+      host: process.env.IP,
+      user: process.env.USER,
+      password: '',
+      port: process.env.PORT,
+      database: 'users'
+    };
+    
 app.set('port', process.env.PORT || 3000);
 //app.set('appData', dataFile);
 app.set('view engine', 'ejs');
@@ -20,6 +29,7 @@ app.use(clientsessions({
   duration: 30 * 60 * 1000,
   activeDuratoin: 5 * 60 * 1000,
 }));
+app.use(myConnection(mysql, dbOptions, 'pool'));
 app.use(express.static('app/public'));
 app.use(require('./routes/index'));
 app.use(require('./routes/personality'));
@@ -27,6 +37,7 @@ app.use(require('./routes/twitter'));
 app.use(require('./routes/facebook'));
 app.use(require('./routes/information'));
 app.use(require('./routes/report'));
+app.use(require('./routes/login'));
 
 
 var server = app.listen(app.get('port'), function() {
