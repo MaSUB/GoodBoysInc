@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var db = require("./db.js");
-var Promise = require('promise');
 
 function loginCallback(req, res, err, returnValue){
     
@@ -10,7 +9,7 @@ function loginCallback(req, res, err, returnValue){
       res.redirect('/login');
     }else{
       console.log(returnValue);
-      res.redirect('/login/success');
+      res.redirect('/account');
     }
 }
 
@@ -23,9 +22,16 @@ router.get('/login', function(req, res) {
   });
 });
 
-router.get('/login/success', function(req, res) {
-  //var dataFile = req.app.get('appData');
-  res.send("successssssssssss");
+router.get('/login/gateway', function(req, res) {
+  
+  console.log(req.session.uname + " " + req.session.password);
+  //check if user is already loged in
+  if(!(req.session.uname && req.session.password)){
+     
+     res.redirect("https://goodboysinc-mws5966.c9users.io/login");
+  }else{
+    res.redirect("https://goodboysinc-mws5966.c9users.io/account")
+  }
 });
 
 
