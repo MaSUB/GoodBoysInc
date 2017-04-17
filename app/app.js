@@ -5,8 +5,9 @@ var bodyParser = require('body-parser');
 var clientsessions = require('client-sessions');
 var randomstring = require("randomstring");
 
+
+
 app.set('port', process.env.PORT || 3000);
-//app.set('appData', dataFile);
 app.set('view engine', 'ejs');
 app.set('views', 'app/views');
 
@@ -27,6 +28,9 @@ app.use(require('./routes/twitter'));
 app.use(require('./routes/facebook'));
 app.use(require('./routes/information'));
 app.use(require('./routes/report'));
+app.use(require('./routes/login'));
+app.use(require('./routes/account'));
+
 
 
 var server = app.listen(app.get('port'), function() {

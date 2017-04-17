@@ -12,8 +12,8 @@ var OAuth = require('oauth').OAuth
       //"http://localhost:3000/auth/twitter/callback",
       "https://goodboysinc-mws5966.c9users.io/auth/twitter/callback",
       "HMAC-SHA1"
-    );
-
+);
+var db = require("./db.js");
 
 router.get('/twitter', function(req, res) {
 
@@ -24,7 +24,7 @@ router.get('/twitter', function(req, res) {
     }
     else {
 
-      console.log("it worked kind  " + oauth_token);
+      console.log("OAuth Token: " + oauth_token);
       req.session.oauth = {
         token: oauth_token,
         token_secret: oauth_token_secret
@@ -96,7 +96,8 @@ router.get('/auth/twitter/info',function(req,res,next){
       jsonfile.writeFile(file, twitObj, function(err){
         if(err){console.error(err);}
       });
-
+      
+      /* Write to DB */ 
       /* Send to Watson */
       res.redirect('/personality/twitter');
     }

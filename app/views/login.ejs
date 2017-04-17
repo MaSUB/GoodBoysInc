@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> <%= siteTitle %>--<%= pageTitle %></title>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    </head>
+    <body id="<%= pageID %>">
+
+      <!--  Start of header section  -->
+      <div class='header'>
+        <div class="top-header">
+          <h1 id="page-title">GoodBoysInc.</h1>
+        </div>
+        <div class="nav-bar">
+          <div class=nav-bar-item>
+            <a href="">Home</a>
+          </div>
+          <div class=nav-bar-item>
+            <a href="https://goodboysinc-mws5966.c9users.io/twitter">Dog for you</a>
+          </div>
+          <div class=nav-bar-item>
+            <a href="">Dog Types</a>
+          </div>
+          <div class=nav-bar-item>
+            <a href="">About Us</a>
+          </div>
+        </div>
+      </div>
+      <!-- End of header section  -->
+
+      <!-- Start of content section  -->
+      <div class="content">
+        <div class="content-row">
+          <h2 class="content-header">Something Will go here</h2>
+          <div class="content-text">
+            <form method="post" action="/login/confirm">
+                <div class="container">
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+        
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+        
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+          </div>
+        </div>
+
+      <!--  End of content section  -->
+
+      <!-- Start of footer section -->
+      <div class="footer">
+        <div class="footer-left">
+          <p id='ftr-1' class="footer-text">GoodBoysInc</p>
+          <p id='ftr-2' class="footer-text">CMPSC 421</p>
+          <p id='ftr-2' class="footer-text">Soaring Eagles</p>
+        </div>
+        <div class="footer-right">
+          <a  target="_blank" href="https://github.com/MaSUB/GoodBoysInc">
+            <img id='git-link' src="http://icon-icons.com/icons2/790/PNG/512/github_icon-icons.com_65450.png" alt="github">
+          </a>
+        </div>
+      </div>
+      <!-- End of footer section -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="/reload/reload.js/"></script>
+    </body>
+</html>

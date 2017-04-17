@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var jsonfile = require("jsonfile");
 var session = require('client-sessions');
+var db = require("./db.js");
 
 router.get('/information', function(req, res) {
   res.render('information', {
@@ -11,6 +12,7 @@ router.get('/information', function(req, res) {
 });
 
 router.post('/information/info', function(req, res){
+  
   var aboutObj = {
     content_Items: [],
     about:[]
