@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var jsonfile =require('jsonfile');
+var db = require("./db.js");
 
 router.get('/report', function(req, res) {
   //var dataFile = req.app.get('appData');

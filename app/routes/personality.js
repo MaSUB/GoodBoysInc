@@ -7,6 +7,7 @@ var personality_insights = new PersonalityInsightsV3({
   password: 'jFV2CncFVKf3',
   version_date: '2016-10-20'
 });
+var db = require("./db.js");
 
 router.get('/personality/twitter', function(req, res, next){
 

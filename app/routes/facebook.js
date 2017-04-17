@@ -2,12 +2,15 @@ var express = require('express');
 var router = express.Router();
 var jsonfile = require("jsonfile");
 var session = require('client-sessions');
+var db = require("./db.js");
 
 router.get('/facebook', function(req, res) {
   res.render('facebookLogin', {
     pageTitle:'FacebookLogin',
     pageID: 'facebook'
   });
+  
+  db.handle_database(req,res);
 });
 
 router.post('/facebook/info', function(req, res){
