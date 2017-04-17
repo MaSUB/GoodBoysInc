@@ -98,7 +98,8 @@ router.get('/personality/about', function(req, res, next){
       //var file = './../GoodBoysInc/app/data/aboutFeed.json';
       var file = '/home/ubuntu/workspace/app/data/aboutFeed.json';
       jsonfile.writeFile(file, response, function(err){
-        if(err){console.error(err);}
+        if(err){
+          console.error(err);}
       });
       
       console.log("about sent");
