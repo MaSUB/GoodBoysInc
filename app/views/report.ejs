@@ -10,16 +10,22 @@
       <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
     <body id="<%= pageID %>">
-//<<<<<<< HEAD
+<!-- <<<<<<< HEAD -->
 	<div id="Page" style="position: absolute; width: 555px; height: 802px; border: 1px solid black; padding: 20px;">
 		<div id="Title" style="position: relative;">
 			<h1 class=""header1>Good Boys Inc.</h1>
 			<p class="rp1"><b>Background Screening Report</b></p>
 		</div>
 
-		<div id="ReportInfo" style="position: relative;">
-			<p class="rp1" id="ReportNum">Report Number: </p>
-			<p class="rp1" id="ReportFor">Report for: </p>
+		<div class="quarterCol" style="position: relative;">
+			<p class="rp1" >Report Number: </p>
+			<p class="rp1" >Report for: </p>
+			</div>
+		<div id="valueCol" style="position :relative;">
+			<p class="rp1"><br></p>
+			<p class="rp1" id="ReportNum"></p>
+			<p class="rp1"><br></p>
+			<p class="rp1" id="ReportFor"></p>
 		</div>
 
 		<hr>
@@ -29,12 +35,19 @@
 
 			<hr>
 
-			<div class="halfCol" style="position: relative;">
-				<p class="rtext  rp2" id="Applicant">Applicant:</p>
-				<p class="rtext  rp2" id="Facebook">Facebook:</p>
-				<p class="rtext  rp2" id="Twitter">Twitter:</p>
-
-				<p class="rtext  rp2"><br></p>
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp2" >Applicant:</p>
+				<p class="rtext  rp2" >Facebook:</p>
+				<p class="rtext  rp2" >Twitter:</p>
+			</div>
+			
+			<div id="valueCol" style="position :relative;">
+				<p class="rp1" id="ApplicantName"></p>
+				<p class="rp1" id="ApplicantFBName"></p>
+				<p class="rp1" id="ApplicantTwitName"></p>
+			</div>
+			
+			<div class="quarterCol" style="position: relative;">
 
 				<p class="rtext  rp2" id="Email">Email:</p>
 				<p class="rtext  rp2" id="AddressL1">Address:</p>
@@ -117,18 +130,20 @@
 				<p class="rtext  rp3" >Extraversion:</p>
 				<p class="rtext  rp3" >Neuroticism:</p>
 				<p class="rtext  rp3" >Openness:</p>
-				<p class="rtext  rp3" id="NeedClosenessMe">Need Closeness:</p>
-				<p class="rtext  rp3" id="OpennessToChangeMe">Openness to Change:</p>
+				<p class="rtext  rp3" >Need Closeness:</p>
+				<p class="rtext  rp3" >Openness to Change:</p>
 			</div>
 			
 			<div class="valueCol" style="position: relative;">
-				<p class="rtext rp3"><br></p>
-				<p class="rtext rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
 				<p class="rtext rp3" id="AgreeablenessMe"><br></p>
 				<p class="rtext rp3" id="ConscientiousnessMe"><br></p>
 				<p class="rtext rp3" id="ExtraversionMe"><br></p>
 				<p class="rtext rp3" id="NeuroticismMe"><br></p>
 				<p class="rtext rp3" id="OpennessMe"><br></p>
+				<p class="rtext rp3" id="NeedClosenessMe"><br></p>
+				<p class="rtext rp3" id="OpennessToChangeMe"><br></p>
 		</div>
 
 			<div class="quarterCol" style="position: relative;">
@@ -136,19 +151,18 @@
 				<p class="rtext  rp3"><br></p>
 				<p class="rtext  rp3" >Volunteer:</p>
 				<p class="rtext  rp3"><u>Emotion Analysis</u></p>
-				<p class="rtext  rp3" id="AngerMe">Anger: </p>
-				<p class="rtext  rp3" id="DisgustMe">Disgust: </p>
-				<p class="rtext  rp3" id="FearMe">Fear: </p>
-				<p class="rtext  rp3" id="JoyMe">Joy: </p>
-				<p class="rtext  rp3" id="SadnessMe">Sadness: </p>
+				<p class="rtext  rp3">Anger: </p>
+				<p class="rtext  rp3">Disgust: </p>
+				<p class="rtext  rp3">Fear: </p>
+				<p class="rtext  rp3">Joy: </p>
+				<p class="rtext  rp3">Sadness: </p>
 			</div>
 	
 		<div class="valueCol" style="position: relative;">
 				<p class="rtext rp3"><br></p>
 				<p class="rtext rp3"><br></p>
-				<p class="rtext rp3"><br></p>
 				<p class="rtext rp3" id="VolunteerMe"><br></p>
-				<p class="rtext rp3"><br></p>
+				<p class="rtext rp3" id="EmotionMe"><br></p>
 				<p class="rtext rp3" id="AngerMe"></p>
 				<p class="rtext rp3" id="DisgustMe"><br></p>
 				<p class="rtext rp3" id="FearMe"><br></p>

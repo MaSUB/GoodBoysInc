@@ -4,6 +4,7 @@ $(document).ready(function() {
     var faceObj = getFacebookObj();
     var aboutObj = getAboutObj();
     
+   
     var pass_fail;
     var agreeableness;
     var conscientiousness;
@@ -18,7 +19,6 @@ function twitterCallBack(twitObj){									//parsing for twitter fields: Agreeab
 var agreeableness_value = ((twitObj.personality[3].raw_score)*100);	//agreeableness out of 100
 var agreeableness_report = agreeableness_value.toPrecision(4);			//agreeableness xx.xx ( for easy display as %)
 document.getElementById("AgreeableT").innerHTML = agreeableness_report + " %";		//adds to agreeablness column
-agreeableness+=agreeableness_report;
 
 
 var conscientiousness_value = ((twitObj.personality[1].raw_score)*100);	//conscientiousness out of 100
@@ -36,6 +36,7 @@ document.getElementById("NeuroticismT").innerHTML = neuroticism_report + " %";
 var openness_value = ((twitObj.personality[0].raw_score)*100);		//openness out of 100
 var openness_report = openness_value.toPrecision(4);
 document.getElementById("OpennessT").innerHTML = openness_report + " %";
+
 
 }
 
@@ -65,6 +66,9 @@ document.getElementById("OpennessF").innerHTML = openness_report + " %";
 }
 
 function aboutCallBack(aboutObj){
+var reportNum = 5555;
+document.getElementById("ReportNum").innerHTML = reportNum;
+
 	
 var agreeableness_value = ((aboutObj.personality[3].raw_score)*100);	//agreeableness out of 100
 var agreeableness_report = agreeableness_value.toPrecision(4);		
@@ -78,7 +82,7 @@ document.getElementById("ConscientiousnessMe").innerHTML = conscientiousness_rep
 var extraversion_value = ((aboutObj.personality[2].raw_score)*100);	//extraversion out of 100
 var extraversion_report = extraversion_value.toPrecision(4);
 document.getElementById("ExtraversionMe").innerHTML = extraversion_report + " %";
-
+ 
 var neuroticism_value = ((aboutObj.personality[4].raw_score)*100);		//neuroticism out of 100
 var neuroticism_report = neuroticism_value.toPrecision(4);
 document.getElementById("NeuroticismMe").innerHTML = neuroticism_report + " %";
@@ -87,6 +91,32 @@ var openness_value = ((aboutObj.personality[0].raw_score)*100);		//openness out 
 var openness_report = openness_value.toPrecision(4);
 document.getElementById("OpennessMe").innerHTML = openness_report + " %";
 	
+
+var closeness_value = ((aboutObj.needs[1].raw_score)*100);
+var closeness_report = closeness_value.toPrecision(4);
+document.getElementById("NeedClosenessMe").innerHTML = closeness_report + " %";
+
+
+var opennessToChange_value = ((aboutObj.values[1].raw_score)*100);
+var opennessToChange_report = opennessToChange_value.toPrecision(4);
+document.getElementById("OpennessToChangeMe").innerHTML = opennessToChange_report + " %";
+
+var volunteer_status = aboutObj.consumption_preferences[7].consumption_preferences[0].score;
+if(volunteer_status == 1 ){
+	document.getElementById("VolunteerMe").innerHTML = "Yes";
+}
+else{
+	document.getElementById("VolunteerMe").innerHTML = "No";
+}
+
+var emotion_analysis = ((aboutObj.personality[0].children[2].raw_score)*100);
+var emotion_analysis_report = emotion_analysis.toPrecision(4);
+	document.getElementById("EmotionMe").innerHTML = emotion_analysis_report + " %";
+	
+var anger_value = ((aboutObj.personality[4].children[0].raw_score)*100);
+var anger_value_report = anger_value.toPrecision(4);
+	document.getElementById("AngerMe").innerHTML = anger_value_report + " %";
+
 
 }
 
