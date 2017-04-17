@@ -9,11 +9,14 @@ function getReport_callback(req, res, err){
     res.send("server side error");
   }else if(req.session.report != null){
     
-    console.log(req.session.report);
-    res.send("sent report path");
+    res.send(req.session.report);
   }else{
     
-    res.redirect('/twitter');
+    var obj = {
+      "error": "no report"
+    };
+    
+    res.send(obj);
   }
 }
 
