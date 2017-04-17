@@ -34,7 +34,7 @@ router.post('/information/info', function(req, res){
       console.error(err);
      }
   });
-  console.log("First Name " + JSON.stringify(aboutObj));
+  console.log(JSON.stringify(aboutObj));
   
 
   /* Send to Watson */
