@@ -6,23 +6,17 @@ function getReport_callback(req, res, err){
   
   if(err){
     
-    console.log("if ");
     res.send("server side error");
   }else if(req.session.report != null){
     
-    console.log("else if one ");
     res.send(JSON.stringify(req.session.report));
   }else{
     
-    console.log("else ");
-    console.log("fucked");
-    
     var obj = {
-      "success": "no report"
+      "error": "no report"
     };
     
-    //res.type('json');
-    res.send({success : "Updated Successfully"});
+    res.send(obj);
   }
 }
 

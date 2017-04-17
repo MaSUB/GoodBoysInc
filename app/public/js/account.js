@@ -7,6 +7,7 @@ $(document).ready(function() {
 function report_callback(data){
 	
 	console.log(data);
+	// do more things 
 }
 
 function getReport(callback){
@@ -19,7 +20,6 @@ function getReport(callback){
 		url: 'https://goodboysinc-mws5966.c9users.io/account/getReport',
 		success: function(data) {
 		
-			console.log("why");
 			callback(data);
 		},
 		error: function(data){
