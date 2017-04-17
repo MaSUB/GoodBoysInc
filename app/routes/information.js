@@ -20,6 +20,11 @@ router.post('/information/info', function(req, res){
   aboutObj.about.push({firstName: req.body.fname});
   aboutObj.about.push({lastName: req.body.lname});
   aboutObj.about.push({email: req.body.email});
+  aboutObj.about.push({phoneNumber: req.body.pNumber});
+  aboutObj.about.push({facebook: req.body.facebookLink});
+  aboutObj.about.push({twitter: req.body.twitterLink});
+  aboutObj.about.push({address1: req.body.address1});
+  aboutObj.about.push({address2: req.body.address2});
   
   /* Write obj to file */
   //var file = './../GoodBoysInc/app/data/aboutFeed.json';
