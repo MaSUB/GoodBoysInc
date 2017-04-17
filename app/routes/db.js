@@ -57,8 +57,10 @@ exports.check_login = function (loginCallback, req, res, uname, password) {
             
             for(var i in rows){
                 if(rows[i].uname == uname && rows[i].password == password){
-                    //*console.log(rows[i].type);
+                    req.session.uname = rows[i].uname;
+                    req.session.password = rows[i].password;
                     req.session.type = rows[i].type; 
+                    req.session.loggedin = 1;
                     loginCallback(req, res, err, rows[i].type);
                 }
             }
@@ -101,7 +103,7 @@ exports.set_report = function () {
   });
 }
 
-exports.get_report = function () {
+exports.get_report = function (req, res, callback) {
     
     pool.getConnection(function(err,connection){
         if (err) {
@@ -113,11 +115,27 @@ exports.get_report = function () {
         
         connection.query("select * from ACCOUNTS",function(err,rows){
             connection.release();
-            if(!err) {
-                console.log("error");    
-            } 
+            if(err) {
+                console.log("error");
+                 callback(req, res, err);
+            }else{ 
             
-            console.log("rows= " + rows[0].uname);
+                // change if we get match 
+                var noMatch = 1;
+                for(var i in rows){
+                    
+                    if(rows[i].uname == req.session.uname && rows[i].password == req.session.password){
+                        
+                        req.session.report.rows[i].reportpath;
+                        noMatch = 0;
+                        callback(req, res, err);
+                    }
+                }
+                if(noMatch == 1){
+                        console.log("No match for a report in DB");
+                        callback(req, res, err);
+                }
+            }
         });
 
         connection.on('error', function(err) {      

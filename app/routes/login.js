@@ -15,22 +15,17 @@ function loginCallback(req, res, err, returnValue){
 
 router.get('/login', function(req, res) {
   
-  res.render('login', {
-
-    pageTitle:'Login',
-    pageID: 'login'
-  });
-});
-
-router.get('/login/gateway', function(req, res) {
-  
-  console.log(req.session.uname + " " + req.session.password);
-  //check if user is already loged in
-  if(!(req.session.uname && req.session.password)){
-     
-     res.redirect("https://goodboysinc-mws5966.c9users.io/login");
+  console.log(req.session.loggedin);
+  if(req.session.loggedin == 1){
+    
+   res.redirect('/account');
   }else{
-    res.redirect("https://goodboysinc-mws5966.c9users.io/account")
+    
+     res.render('login', {
+  
+      pageTitle:'Login',
+      pageID: 'login'
+    });
   }
 });
 
