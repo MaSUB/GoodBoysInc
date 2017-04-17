@@ -15,7 +15,7 @@ function loginCallback(req, res, err, returnValue){
 
 router.get('/login', function(req, res) {
   
-  console.log(req.session.loggedin);
+  console.log("logged in " + req.session.loggedin);
   if(req.session.loggedin == 1){
     
    res.redirect('/account');

@@ -6,17 +6,23 @@ function getReport_callback(req, res, err){
   
   if(err){
     
+    console.log("if ");
     res.send("server side error");
   }else if(req.session.report != null){
     
-    res.send(req.session.report);
+    console.log("else if one ");
+    res.send(JSON.stringify(req.session.report));
   }else{
     
+    console.log("else ");
+    console.log("fucked");
+    
     var obj = {
-      "error": "no report"
+      "success": "no report"
     };
     
-    res.send(obj);
+    //res.type('json');
+    res.send({success : "Updated Successfully"});
   }
 }
 
@@ -38,15 +44,5 @@ router.post('/account/getReport', function(req, res) {
  db.get_report(req, res, getReport_callback);
 });
 
-/*
-Check if uname matches
-
-Then check if pword matches that row
-
-Check type, to determine which account page gets loaded 
--------
-Check current user that is logged in?
-
-*/
 
 module.exports = router;

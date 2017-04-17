@@ -126,6 +126,7 @@ exports.get_report = function (req, res, callback) {
                     
                     if(rows[i].uname == req.session.uname && rows[i].password == req.session.password){
                         
+                        console.log("why");
                         req.session.report = rows[i].reportpath;
                         noMatch = 0;
                         callback(req, res, err);

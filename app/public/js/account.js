@@ -1,11 +1,12 @@
-
 $(document).ready(function() {
     
+    getReport(report_callback); 
     
-    function callback(data){
+});
+
+function report_callback(data){
 	
-	console.log("why me lord");
-	var stuff = data;
+	console.log(data);
 }
 
 function getReport(callback){
@@ -15,18 +16,15 @@ function getReport(callback){
 		dataType: "json",
 		contentType: "application/json",
 		//url: 'http://localhost:3000/report/facebook',
-		url: 'https://goodboysinc-mws5966.c9users.io/report/facebook',
+		url: 'https://goodboysinc-mws5966.c9users.io/account/getReport',
 		success: function(data) {
-			console.log('got facebook object');
-			obj = data;
+		
+			console.log("why");
 			callback(data);
+		},
+		error: function(data){
+			console.log(data);
 		}
   	});
 }
-
-    var report = getReport(callback); 
-    
-    //jj and nick work here down 
-   
-});
 
