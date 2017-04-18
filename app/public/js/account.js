@@ -7,6 +7,9 @@ $(document).ready(function() {
 function report_callback(data){
 	
 	console.log(data);
+	if(data = ""){
+		window.location.replace("'https://goodboysinc-mws5966.c9users.io/twitter");
+	}
 	// do more things 
 }
 
