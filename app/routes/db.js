@@ -36,7 +36,15 @@ exports.handle_database = function (req, res) {
         });
   });
 }
-    
+
+/*
+ * 
+ *
+ * check_login  
+ * Looks up login in DB 
+ * if no login sends to /twitter to create report and entry in db 
+ *
+ */   
 exports.check_login = function (loginCallback, req, res, uname, password) {
     
     pool.getConnection(function(err,connection){
@@ -77,6 +85,14 @@ exports.check_login = function (loginCallback, req, res, uname, password) {
   });
 }
 
+/*
+ * 
+ *
+ * set_report 
+ * For use when person is logining in for the first time 
+ *
+ *
+ */
 exports.set_report = function (req, res, callback) {
     
     pool.getConnection(function(err,connection){
@@ -87,13 +103,15 @@ exports.set_report = function (req, res, callback) {
 
         console.log('connected as id ' + connection.threadId);
         
-        connection.query("select * from ACCOUNTS",function(err,rows){
+        connection.query("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.body.name + "\"" + "," + 
+            "\"" + req.body.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.body.unmae + "\"" + "\"Report.json\");",function(err,rows){
             connection.release();
             if(!err) {
                 console.log("error");    
-            } 
-            
-            console.log("rows= " + rows[0].uname);
+            } else{
+                
+                 callback(req, res, err);
+            }
         });
 
         connection.on('error', function(err) {      
@@ -103,6 +121,14 @@ exports.set_report = function (req, res, callback) {
   });
 }
 
+/*
+ * 
+ *
+ * get_report 
+ * For use when employee is trying to get accounts 
+ * also for use when another person is trying ot view their account
+ *
+ */
 exports.get_report = function (req, res, callback) {
     
     pool.getConnection(function(err,connection){

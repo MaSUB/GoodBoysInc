@@ -4,10 +4,18 @@ var db = require("./db.js");
 
 function loginCallback(req, res, err, returnValue){
     
-    if(err){
-      console.log("in dis");
+    if(err == "No match in DB"){
+      
+      //send to twitter to make no report if no match
+      console.log("Making new report");
+      res.redirect('/twitter');
+    }else if(err){
+      
+      // have them try again if its anyother error
       res.redirect('/login');
     }else{
+      
+      // Load account page if found in DB
       console.log(returnValue);
       res.redirect('/account');
     }
