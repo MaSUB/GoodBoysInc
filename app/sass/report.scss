@@ -13,6 +13,7 @@
 }
 .rp1
 {
+  color:$offWhite;
   font-size: 12px;
 }
 
@@ -30,6 +31,7 @@
 
   .header2{
     font-size: 1.5em;
+    font-family: "Fjalla One", sans-serif;
     color:$lightBlue;
   }
 
@@ -61,3 +63,28 @@
     position:relative;
   }
 }
+
+.halfCol{
+			float: left;
+			width: 50%;
+		}
+		.thirdCol
+		{
+			float: left;
+			width: 33%;
+		}
+		.quarterCol
+		{
+			float: left;
+			width: 25%;
+		}
+		.valueCol
+		{
+			float: left;
+			width: 8.33%
+		}
+		.valueCol
+		{
+			float: left;
+			width: 8.33%
+		}

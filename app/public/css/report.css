@@ -232,6 +232,7 @@ a, p {
   font-size: 11px; }
 
 .rp1 {
+  color: #F5F5F5;
   font-size: 12px; }
 
 #Page {
@@ -245,6 +246,7 @@ a, p {
     background-color: black; }
   #Page .header2 {
     font-size: 1.5em;
+    font-family: "Fjalla One", sans-serif;
     color: #adcbe3; }
   #Page .header3 {
     font-size: 1em;
@@ -264,5 +266,25 @@ a, p {
     color: #F5F5F5; }
   #Page #ApplicantInfo {
     position: relative; }
+
+.halfCol {
+  float: left;
+  width: 50%; }
+
+.thirdCol {
+  float: left;
+  width: 33%; }
+
+.quarterCol {
+  float: left;
+  width: 25%; }
+
+.valueCol {
+  float: left;
+  width: 8.33%; }
+
+.valueCol {
+  float: left;
+  width: 8.33%; }
 
 /*# sourceMappingURL=report.css.map */
