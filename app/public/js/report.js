@@ -3,6 +3,7 @@ $(document).ready(function() {
     var twitObj = getTwitterObj();
     var faceObj = getFacebookObj();
     var aboutObj = getAboutObj();
+    sendBody();
     
 
 });
@@ -206,6 +207,32 @@ function getAboutObj(){
 			console.log('got about object');
 			obj = data;
 			aboutCallBack(obj);
+		}
+  	});
+  	
+}
+
+function sendBody(){
+
+	var bodyObj = {
+		
+		"body": document.getElementsByTagName("BODY")[0].outerHTML.replace(new RegExp("\"", 'g'), "*")
+	};
+	
+	console.log(bodyObj.body);
+	
+	
+  	$.ajax({
+		type: 'POST',
+		dataType: "json",
+		contentType: "application/json",
+		//url: 'http://localhost:3000/report/information',
+		url: 'https://goodboysinc-mws5966.c9users.io/account/setReport',
+		data: JSON.stringify(bodyObj),
+		success: function(data) {
+			console.log('got about object');
+			obj = data;
+		
 		}
   	});
   	
