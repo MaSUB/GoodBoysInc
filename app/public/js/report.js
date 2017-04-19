@@ -138,12 +138,17 @@ var anger_value_report = anger_value.toPrecision(4);
 	
    
 var applicant_name = aboutObj.about[0].firstName + " " + aboutObj.about[1].lastName;
+	document.getElementById("ApplicantName").innerHTML = applicant_name;
 var applicant_email = aboutObj.about[2].email;
+	document.getElementById("Email").innerHTML = applicant_email;
 var applicant_phone = aboutObj.about[3].phoneNumber;				//gets applicant info from aboutMe JSON
+	document.getElementById("Phone").innerHTML = applicant_phone;
 var applicant_fb = aboutObj.about[4].facebook;
+	document.getElementById("ApplicantFBName").innerHTML = applicant_fb;
 var applicant_tw = aboutObj.about[5].twitter;
-var applicant_street_address = aboutObj.about[6].address1;
-var applicant_state_address = aboutObj.about[7].address2;
+	document.getElementById("ApplicantTwitName").innerHTML = applicant_tw;
+var applicant_street_address = aboutObj.about[6].address1 + " " + aboutObj.about[7].address2;
+	document.getElementById("AddressL1").innerHTML = applicant_street_address;
 
 
 
