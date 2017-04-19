@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var jsonfile = require("jsonfile");
 var db = require("./db.js");
 
 function getReport_callback(req, res, err){
@@ -9,7 +10,9 @@ function getReport_callback(req, res, err){
     res.send("server side error");
   }else if(req.session.report != null){
     
-    res.send(JSON.stringify(req.session.report));
+   var reportBody = require("./../userData/" + req.session.report);
+   res.send(JSON.stringify(reportBody));
+    
   }else{
     
     var obj = {
@@ -38,5 +41,8 @@ router.post('/account/getReport', function(req, res) {
  db.get_report(req, res, getReport_callback);
 });
 
+router.post('/account/setReport', function(req, res) {
 
+ db.set_report(req, res, getReport_callback);
+});
 module.exports = router;

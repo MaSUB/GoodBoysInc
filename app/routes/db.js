@@ -77,7 +77,7 @@ exports.check_login = function (loginCallback, req, res, uname, password) {
   });
 }
 
-exports.set_report = function () {
+exports.set_report = function (req, res, callback) {
     
     pool.getConnection(function(err,connection){
         if (err) {

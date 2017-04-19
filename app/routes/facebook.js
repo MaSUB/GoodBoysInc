@@ -21,8 +21,9 @@ router.post('/facebook/info', function(req, res){
   //var file = './../GoodBoysInc/app/data/facefeed.json';
 	var file = '/home/ubuntu/workspace/app/data/faceFeed.json';
   jsonfile.writeFile(file, req.body, function(err){
-     if(err){console.error(err);}
-    
+     if(err){
+       console.error(err);
+     }
   });
   
   /* Send to Watson */
