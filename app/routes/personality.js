@@ -77,6 +77,11 @@ router.get('/personality/facebook', function(req, res, next){
 
 router.get('/personality/about', function(req, res, next){
 
+
+  //save about before it goes to watson
+  var aboutObj = require('./../data/aboutFeed.json').about;
+  console.log("personality" + JSON.stringify(aboutObj));
+  
   var params = {
 
     // Get the content items from the JSON file.
@@ -93,13 +98,16 @@ router.get('/personality/about', function(req, res, next){
     if (error)
       console.log('Error:', error);
     else{
-      //console.log(JSON.stringify(response, null, 2));
+      
+      response.about = aboutObj;
+      console.log(JSON.stringify(response, null, 2));
       
       /* write out to file */
       //var file = './../GoodBoysInc/app/data/aboutFeed.json';
       var file = '/home/ubuntu/workspace/app/data/aboutFeed.json';
       jsonfile.writeFile(file, response, function(err){
-        if(err){console.error(err);}
+        if(err){
+          console.error(err);}
       });
       
       console.log("about sent");

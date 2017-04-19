@@ -9,180 +9,365 @@
       <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
     <body id="<%= pageID %>">
-      <div class='header'>
-        <div class="top-header">
-          <h1 id="page-title">GoodBoysInc.</h1>
-        </div>
-        <div class="nav-bar">
-          <div class=nav-bar-item>
-            <a href="">Home</a>
-          </div>
-          <div class=nav-bar-item>
-            <a href="">Dog for you</a>
-          </div>
-          <div class=nav-bar-item>
-            <a href="">Dog Types</a>
-          </div>
-          <div class=nav-bar-item>
-            <a href="">About Us</a>
-          </div>
-        </div>
-      </div>
+	<div id="Page" style="position: absolute; width: 555px; height: 802px; border: 1px solid black; padding: 20px;">
+		<div id="Title" style="position: relative;">
+			<h1 class=""header1>Good Boys Inc.</h1>
+			<p class="rp1"><b>Background Screening Report</b></p>
+		</div>
+
+		<div class="quarterCol" style="position: relative;">				
+			<p class="rp1" >Report Number: </p>
+			<p class="rp1" >Report for: </p>
+			</div>
+		<div id="valueCol" style="position :relative;">
+			<p class="rp1"><br></p>
+			<p class="rp1" id="ReportNum"></p>
+			<p class="rp1"><br></p>
+			<p class="rp1" id="ReportFor"></p>				
+		</div>
+
+		<hr>
+
+		<div id="ApplicantInfo" style="position: relative;">
+			<h2 class="header2" style="text-align:center;">Applicant Information</h2>
+
+			<hr>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp2" >Applicant:</p>
+				<p class="rtext  rp2" >Facebook:</p>
+				<p class="rtext  rp2" >Twitter:</p>
+			</div>
+			
+			<div id="valueCol" style="position :relative;">
+				<p class="rp1" id="ApplicantName"></p>
+				<p class="rp1" id="ApplicantFBName"></p>
+				<p class="rp1" id="ApplicantTwitName"></p>
+			</div>
+			
+			<div class="quarterCol" style="position: relative;">
+
+				<p class="rtext  rp2" id="Email">Email:</p>
+				<p class="rtext  rp2" id="AddressL1">Address:</p>
+			</div>
+
+			<div class="halfCol" style="position: relative;">
+				<p class="rtext  rp2" id="Phone">Phone Number:</p>
+				<p class="rtext  rp2"><br></p>
+				<p class="rtext  rp2"><br></p>
+				<p class="rtext  rp2"><br></p>
+				<p class="rtext  rp2"><br></p>
+				<p class="rtext  rp2" id="AddressL2">City/State/Zip:</p>
+			</div>
+		</div>
+
+		<hr>
+
+		<div id="ReportSummary" style="position: relative;">
+			<h2 style="text-align:center;">Report Summarization</h2>
+
+			<hr>
+
+			<p class="rtext  rp3" style="text-align:center;"><b>Decision Report</b></p>
+
+			<hr>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp3" id="Decision1"><b>Decision:</b></p>
+				<p class="rtext  rp3"><b>Category</b></p>
+				<p class="rtext  rp3">Agreeableness:</p>
+				<p class="rtext  rp3">Conscientiousness:</p>
+				<p class="rtext  rp3">Extraversion:</p>
+				<p class="rtext  rp3">Neuroticism:</p>
+				<p class="rtext  rp3">Openness:</p>
+
+			</div>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><b>Results:</b></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
+
+			</div>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><b>Twitter</b></p>
+				<p class="rtext  rp3" id="AgreeableT"><br></p>
+				<p class="rtext  rp3" id="ConscientiousnessT"><br></p>
+				<p class="rtext  rp3" id="ExtraversionT"><br></p>
+				<p class="rtext  rp3" id="NeuroticismT"><br></p>
+				<p class="rtext  rp3" id="OpennessT"><br></p>
+
+			</div>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><b>Facebook</b></p>
+				<p class="rtext  rp3" id="AgreeableF"><br></p>
+				<p class="rtext  rp3" id="ConscientiousnessF"><br></p>
+				<p class="rtext  rp3" id="ExtraversionF"><br></p>
+				<p class="rtext  rp3" id="NeuroticismF"><br></p>
+				<p class="rtext  rp3" id="OpennessF"><br></p>
+
+			</div>
+
+			<hr>
+
+			<p class="rtext  rp3" style="text-align:center;"><b>"About Me" Insights</b></p>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp3" id="Decision2"><b>Decision:</b></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3" >Agreeableness:</p>
+				<p class="rtext  rp3" >Conscientiousness:</p>
+				<p class="rtext  rp3" >Extraversion:</p>
+				<p class="rtext  rp3" >Neuroticism:</p>
+				<p class="rtext  rp3" >Openness:</p>
+				<p class="rtext  rp3" >Need Closeness:</p>
+				<p class="rtext  rp3" >Openness to Change:</p>
+			</div>
+			
+			<div class="valueCol" style="position: relative;">
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext rp3" id="AgreeablenessMe"><br></p>
+				<p class="rtext rp3" id="ConscientiousnessMe"><br></p>
+				<p class="rtext rp3" id="ExtraversionMe"><br></p>
+				<p class="rtext rp3" id="NeuroticismMe"><br></p>
+				<p class="rtext rp3" id="OpennessMe"><br></p>
+				<p class="rtext rp3" id="NeedClosenessMe"><br></p>
+				<p class="rtext rp3" id="OpennessToChangeMe"><br></p>
+		</div>
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3" >Volunteer:</p>
+				<p class="rtext  rp3"><u>Emotion Analysis</u></p>
+				<p class="rtext  rp3">Anger: </p>
+				<p class="rtext  rp3">Disgust: </p>
+				<p class="rtext  rp3">Fear: </p>
+				<p class="rtext  rp3">Joy: </p>
+				<p class="rtext  rp3">Sadness: </p>
+			</div>
+	
+		<div class="valueCol" style="position: relative;">
+				<p class="rtext rp3"><br></p>
+				<p class="rtext rp3"><br></p>
+				<p class="rtext rp3" id="VolunteerMe"><br></p>
+				<p class="rtext rp3" id="EmotionMe"><br></p>
+				<p class="rtext rp3" id="AngerMe"></p>
+				<p class="rtext rp3" id="DisgustMe"><br></p>
+				<p class="rtext rp3" id="FearMe"><br></p>
+				<p class="rtext rp3" id="JoyMe"><br></p>
+				<p class="rtext rp3" id="SadnessMe"><br></p>
+		</div>
+
+
+			<div class="quarterCol" style="position: relative;">
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3"><u>Sentiment Analysis</u></p>
+				<p class="rtext  rp3"  >Mixed</p>
+				<p class="rtext  rp3" >Score</p>
+				<p class="rtext  rp3" >Type</p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext  rp3" ><b>Algorithm Result: </b></p>
+				<p class="rtext  rp3" ><b>Suitable Owner: </b></p>
+			</div>
+			<div class="valueCol" style="position: relative;">
+				<p class="rtext rp3"><br></p>
+				<p class="rtext rp3"><br></p>
+				<p class="rtext rp3"><br></p>
+				<p class="rtext rp3" id="MixedMe"><br></p>
+				<p class="rtext rp3" id="ScoreMe"></p>
+				<p class="rtext rp3" id="TypeMe"><br></p>
+				<p class="rtext  rp3"><br></p>
+				<p class="rtext rp3" id="Result"><br></p>
+				<p class="rtext rp3" id="Suitable"><br></p>
+		</div>
+			
+		</div>
+	</div>
+	
+
+<!--      <div class='header'>--><!---->
+<!--        <div class="top-header">--><!---->
+<!--          <h1 id="page-title">GoodBoysInc.</h1>--><!---->
+<!--        </div>--><!---->
+<!--        <div class="nav-bar">--><!---->
+<!--          <div class=nav-bar-item>--><!---->
+<!--            <a href="">Home</a>--><!---->
+<!--          </div>--><!---->
+<!--          <div class=nav-bar-item>--><!---->
+<!--            <a href="">Dog for you</a>--><!---->
+<!--          </div>--><!---->
+<!--          <div class=nav-bar-item>--><!---->
+<!--            <a href="">Dog Types</a>--><!---->
+<!--          </div>--><!---->
+<!--          <div class=nav-bar-item>--><!---->
+<!--            <a href="">About Us</a>--><!---->
+<!--          </div>--><!---->
+<!--        </div>--><!---->
+<!--      </div>-->-->
       <!-- End of header section  -->
 
       <!-- Start of content section  -->
-      <div class="content">
-      	<div id="Page">
-      		<div id="Title">
-      			<h1 class="header1">Good Boys Inc.</h1>
-      			<p class="rp1"><b>Background Screening Report</b></p>
-      		</div>
+<!--<!--      <div class="content">--><!---->
+<!--      	<div id="Page" style="padding: 20px;">--><!---->
+<!--      		<div id="Title" style="position: relative;">--><!---->
+<!--      			<h1 class=""header1>Good Boys Inc.</h1>--><!---->
+<!--      			<p class="rp1"><b>Background Screening Report</b></p>--><!---->
+<!--      		</div>--><!---->
 
-      		<div id="ReportInfo">
-      			<p class="rp1" id="ReportNum">Report Number: </p>
-      			<p class="rp1" id="ReportFor">Report for: </p>
-      		</div>
+<!--      		<div id="ReportInfo" style="position: relative;">--><!---->
+<!--      			<p class="rp1" id="ReportNum">Report Number: </p>--><!---->
+<!--      			<p class="rp1" id="ReportFor">Report for: </p>--><!---->
+<!--      		</div>--><!---->
 
-      		<hr>
+<!--      		<hr>--><!---->
 
-      		<div id="ApplicantInfo">
-      			<h2 class="header2" style="text-align:center;">Applicant Information</h2>
+<!--      		<div id="ApplicantInfo" style="position: relative;">--><!---->
+<!--      			<h2 class="header2" style="text-align:center;">Applicant Information</h2>--><!---->
 
-      			<hr>
+<!--      			<hr>--><!---->
 
-      			<div class="halfCol" style="position: relative;">
-      				<p class="rtext  rp2" id="Applicant">Applicant:</p>
-      				<p class="rtext  rp2" id="Facebook">Facebook:</p>
-      				<p class="rtext  rp2" id="Twitter">Twitter:</p>
+<!--      			<div class="halfCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp2" id="Applicant">Applicant:</p>--><!---->
+<!--      				<p class="rtext  rp2" id="Facebook">Facebook:</p>--><!---->
+<!--      				<p class="rtext  rp2" id="Twitter">Twitter:</p>--><!---->
 
-      				<p class="rtext  rp2"><br></p>
+<!--      				<p class="rtext  rp2"><br></p>--><!---->
 
-      				<p class="rtext  rp2" id="Email">Email:</p>
-      				<p class="rtext  rp2" id="AddressL1">Address:</p>
-      			</div>
+<!--      				<p class="rtext  rp2" id="Email">Email:</p>--><!---->
+<!--      				<p class="rtext  rp2" id="AddressL1">Address:</p>--><!---->
+<!--      			</div>--><!---->
 
-      			<div class="halfCol" style="position: relative;">
-      				<p class="rtext  rp2" id="Phone">Phone Number:</p>
-      				<p class="rtext  rp2"><br></p>
-      				<p class="rtext  rp2"><br></p>
-      				<p class="rtext  rp2"><br></p>
-      				<p class="rtext  rp2"><br></p>
-      				<p class="rtext  rp2" id="AddressL2">City/State/Zip:</p>
-      			</div>
-      		</div>
+<!--      			<div class="halfCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp2" id="Phone">Phone Number:</p>--><!---->
+<!--      				<p class="rtext  rp2"><br></p>--><!---->
+<!--      				<p class="rtext  rp2"><br></p>--><!---->
+<!--      				<p class="rtext  rp2"><br></p>--><!---->
+<!--      				<p class="rtext  rp2"><br></p>--><!---->
+<!--      				<p class="rtext  rp2" id="AddressL2">City/State/Zip:</p>--><!---->
+<!--      			</div>--><!---->
+<!--      		</div>--><!---->
 
-      		<hr>
+<!--      		<hr>--><!---->
 
-      		<div id="ReportSummary" style="position: relative;">
-      			<h2 style="text-align:center;">Report Summarization</h2>
+<!--      		<div id="ReportSummary" style="position: relative;">--><!---->
+<!--      			<h2 style="text-align:center;">Report Summarization</h2>--><!---->
 
-      			<hr>
+<!--      			<hr>--><!---->
 
-      			<p class="rtext  header3" style="text-align:center;"><b>Decision Report</b></p>
+<!--      			<p class="rtext  rp3" style="text-align:center;"><b>Decision Report</b></p>--><!---->
 
-      			<hr>
+<!--      			<hr>--><!---->
 
-      			<div class="quarterCol" style="position: relative;">
-      				<p class="rtext  rp3" id="Decision1"><b>Decision:</b></p>
-      				<p class="rtext  rp3"><b>Category</b></p>
-      				<p class="rtext  rp3">Agreeableness:</p>
-      				<p class="rtext  rp3">Conscientiousness:</p>
-      				<p class="rtext  rp3">Extraversion:</p>
-      				<p class="rtext  rp3">Neuroticism:</p>
-      				<p class="rtext  rp3">Openness:</p>
+<!--      			<div class="quarterCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp3" id="Decision1"><b>Decision:</b></p>--><!---->
+<!--      				<p class="rtext  rp3"><b>Category</b></p>--><!---->
+<!--      				<p class="rtext  rp3">Agreeableness:</p>--><!---->
+<!--      				<p class="rtext  rp3">Conscientiousness:</p>--><!---->
+<!--      				<p class="rtext  rp3">Extraversion:</p>--><!---->
+<!--      				<p class="rtext  rp3">Neuroticism:</p>--><!---->
+<!--      				<p class="rtext  rp3">Openness:</p>--><!---->
 
-      			</div>
+<!--      			</div>--><!---->
 
-      			<div class="quarterCol" style="position: relative;">
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><b>Results:</b></p>
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><br></p>
+<!--      			<div class="quarterCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><b>Results:</b></p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
 
-      			</div>
+<!--      			</div>--><!---->
 
-      			<div class="quarterCol" style="position: relative;">
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><b>Twitter</b></p>
-      				<p class="rtext  rp3" id="AgreeableT"><br></p>
-      				<p class="rtext  rp3" id="ConscientiousnessT"><br></p>
-      				<p class="rtext  rp3" id="ExtraversionT"><br></p>
-      				<p class="rtext  rp3" id="NeuroticismT"><br></p>
-      				<p class="rtext  rp3" id="OpennessT"><br></p>
+<!--      			<div class="quarterCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><b>Twitter</b></p>--><!---->
+<!--      				<p class="rtext  rp3" id="AgreeableT"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="ConscientiousnessT"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="ExtraversionT"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="NeuroticismT"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="OpennessT"><br></p>--><!---->
 
-      			</div>
+<!--      			</div>--><!---->
 
-      			<div class="quarterCol" style="position: relative;">
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><b>Facebook</b></p>
-      				<p class="rtext  rp3" id="AgreeableF"><br></p>
-      				<p class="rtext  rp3" id="ConscientiousnessF"><br></p>
-      				<p class="rtext  rp3" id="ExtraversionF"><br></p>
-      				<p class="rtext  rp3" id="NeuroticismF"><br></p>
-      				<p class="rtext  rp3" id="OpennessF"><br></p>
+<!--      			<div class="quarterCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><b>Facebook</b></p>--><!---->
+<!--      				<p class="rtext  rp3" id="AgreeableF"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="ConscientiousnessF"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="ExtraversionF"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="NeuroticismF"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="OpennessF"><br></p>--><!---->
 
-      			</div>
+<!--      			</div>--><!---->
 
-      			<hr>
+<!--      			<hr>--><!---->
 
-      			<p class="rtext  header3" style="text-align:center;"><b>"About Me" Insights</b></p>
+<!--      			<p class="rtext  rp3" style="text-align:center;"><b>"About Me" Insights</b></p>--><!---->
 
-            <hr>
+<!--      			<div class="thirdCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp3" id="Decision2"><b>Decision:</b></p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="AgreeablenessMe">Agreeableness:</p>--><!---->
+<!--      				<p class="rtext  rp3" id="ConscientiousnessMe">Conscientiousness:</p>--><!---->
+<!--      				<p class="rtext  rp3" id="ExtraversionMe">Extraversion:</p>--><!---->
+<!--      				<p class="rtext  rp3" id="NeuroticismMe">Neuroticism:</p>--><!---->
+<!--      				<p class="rtext  rp3" id="OpennessMe">Openness:</p>--><!---->
+<!--      				<p class="rtext  rp3" id="NeedClosenessMe">Need Closeness:</p>--><!---->
+<!--      				<p class="rtext  rp3" id="OpennessToChangeMe">Openness to Change:</p>--><!---->
+<!--      			</div>--><!---->
 
-      			<div class="thirdCol" style="position: relative;">
-      				<p class="rtext  rp3" id="Decision2"><b>Decision:</b></p>
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3" id="AgreeablenessMe">Agreeableness:</p>
-      				<p class="rtext  rp3" id="ConscientiousnessMe">Conscientiousness:</p>
-      				<p class="rtext  rp3" id="ExtraversionMe">Extraversion:</p>
-      				<p class="rtext  rp3" id="NeuroticismMe">Neuroticism:</p>
-      				<p class="rtext  rp3" id="OpennessMe">Openness:</p>
-      				<p class="rtext  rp3" id="NeedClosenessMe">Need Closeness:</p>
-      				<p class="rtext  rp3" id="OpennessToChangeMe">Openness to Change:</p>
-      			</div>
+<!--      			<div class="thirdCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="VolunteerMe">Volunteer:</p>--><!---->
+<!--      				<p class="rtext  rp3"><u>Emotion Analysis</u></p>--><!---->
+<!--      				<p class="rtext  rp3" id="AngerMe">Anger: </p>--><!---->
+<!--      				<p class="rtext  rp3" id="DisgustMe">Disgust: </p>--><!---->
+<!--      				<p class="rtext  rp3" id="FearMe">Fear: </p>--><!---->
+<!--      				<p class="rtext  rp3" id="JoyMe">Joy: </p>--><!---->
+<!--      				<p class="rtext  rp3" id="SadnessMe">Sadness: </p>--><!---->
+<!--      			</div>--><!---->
 
-      			<div class="thirdCol" style="position: relative;">
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3" id="VolunteerMe">Volunteer:</p>
-      				<p class="rtext  rp3"><u>Emotion Analysis</u></p>
-      				<p class="rtext  rp3" id="AngerMe">Anger: </p>
-      				<p class="rtext  rp3" id="DisgustMe">Disgust: </p>
-      				<p class="rtext  rp3" id="FearMe">Fear: </p>
-      				<p class="rtext  rp3" id="JoyMe">Joy: </p>
-      				<p class="rtext  rp3" id="SadnessMe">Sadness: </p>
-      			</div>
+<!--      			<div class="thirdCol" style="position: relative;">--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3"><u>Sentiment Analysis</u></p>--><!---->
+<!--      				<p class="rtext  rp3"  id="MixedMe">Mixed</p>--><!---->
+<!--      				<p class="rtext  rp3" id="ScoreMe">Score</p>--><!---->
+<!--      				<p class="rtext  rp3" id="TypeMe">Type</p>--><!---->
+<!--      				<p class="rtext  rp3"><br></p>--><!---->
+<!--      				<p class="rtext  rp3" id="Result"><b>Algorithm Result: </b></p>--><!---->
+<!--      				<p class="rtext  rp3" id="Suitable"><b>Suitable Owner: </b></p>--><!---->
+<!--      			</div>--><!---->
+<!--      		</div>--><!---->
+<!--      	</div>--><!---->
+<!--      </div>--><!---->
 
-      			<div class="thirdCol" style="position: relative;">
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3"><u>Sentiment Analysis</u></p>
-      				<p class="rtext  rp3"  id="MixedMe">Mixed</p>
-      				<p class="rtext  rp3" id="ScoreMe">Score</p>
-      				<p class="rtext  rp3" id="TypeMe">Type</p>
-      				<p class="rtext  rp3"><br></p>
-      				<p class="rtext  rp3" id="Result"><b>Algorithm Result: </b></p>
-      				<p class="rtext  rp3" id="Suitable"><b>Suitable Owner: </b></p>
-      			</div>
-      		</div>
-      	</div>
-      </div>
-
-      <div class="footer">
-        <div class="footer-left">
-          <p id='ftr-1' class="footer-text">GoodBoysInc</p>
-          <p id='ftr-2' class="footer-text">CMPSC 421</p>
-          <p id='ftr-2' class="footer-text">Soaring Eagles</p>
-        </div>
-        <div class="footer-right">
-          <a  target="_blank" href="https://github.com/MaSUB/GoodBoysInc">
-            <img id='git-link' src="http://icon-icons.com/icons2/790/PNG/512/github_icon-icons.com_65450.png" alt="github">
-          </a>
-        </div>
-      </div>
+<!--      <div class="footer">--><!---->
+<!--        <div class="footer-left">--><!---->
+<!--          <p id='ftr-1' class="footer-text">GoodBoysInc</p>--><!---->
+<!--          <p id='ftr-2' class="footer-text">CMPSC 421</p>--><!---->
+<!--          <p id='ftr-2' class="footer-text">Soaring Eagles</p>--><!---->
+<!--        </div>--><!---->
+<!--        <div class="footer-right">--><!---->
+<!--          <a  target="_blank" href="https://github.com/MaSUB/GoodBoysInc">--><!---->
+<!--            <img id='git-link' src="http://icon-icons.com/icons2/790/PNG/512/github_icon-icons.com_65450.png" alt="github">--><!---->
+<!--          </a>--><!---->
+<!--        </div>--><!---->
+<!--      </div>-->
 
 	<style>
 		.halfCol
@@ -199,6 +384,16 @@
 		{
 			float: left;
 			width: 25%;
+		}
+		.valueCol
+		{
+			float: left;
+			width: 8.33%
+		}
+		.valueCol
+		{
+			float: left;
+			width: 8.33%
 		}
 		.header1
 		{
