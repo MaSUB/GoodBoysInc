@@ -97,23 +97,25 @@ a, p {
           .content .content-row .content-text-split p {
             font-size: .75em; } }
     .content .content-row .content-img-split {
-      width: 50%;
+      width: 45%;
+      padding: 0 0 0 5%;
       float: right; }
       @media only screen and (max-width: 725px) {
         .content .content-row .content-img-split {
           width: 100%;
-          float: none; } }
+          float: none;
+          padding: 5% 0 0 0; } }
 
 .footer {
-  padding: 1em;
   background-color: #63ace5;
-  width: 97.7%;
+  width: 100%;
   clear: both;
   position: relative;
   z-index: 10;
-  height: 3em; }
+  height: 75px; }
   .footer .footer-left {
     width: 70%;
+    padding: 1em;
     display: inline-block; }
     .footer .footer-left .footer-text {
       padding: 0px;
@@ -122,6 +124,7 @@ a, p {
       color: black; }
   .footer .footer-right {
     float: right;
+    padding: 1em;
     width: 20%;
     text-align: right;
     display: inline-block; }
@@ -161,12 +164,6 @@ a, p {
             width: 75%;
             height: 25px;
             margin: .5em 0; } }
-      /*ZACHS PROBABLY BAD STUFF BELOW*/
-      .info-wrapper .info-form .form-row .input-inRow {
-        width: 250px;
-        height: 25px;
-        margin: .5em 0; }
-      /*ZACHS PROBABLY BAD STUFF ABOVE*/
       .info-wrapper .info-form .form-row #info-area {
         height: 250px;
         font-family: "Raleway", sans-serif;

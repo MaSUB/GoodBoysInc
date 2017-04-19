@@ -3,7 +3,6 @@
 <html>
   <head>
       <title> <%= siteTitle %>--<%= pageTitle %></title>
-      <link rel="stylesheet" type="text/css" href="/css/styles.css">
       <link rel="stylesheet" type="text/css" href="/css/report.css">
       <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
@@ -33,20 +32,20 @@
 
       <!-- Start of content section  -->
       <div class="content">
-      	<div id="Page" style="padding: 20px;">
-      		<div id="Title" style="position: relative;">
-      			<h1 class=""header1>Good Boys Inc.</h1>
+      	<div id="Page">
+      		<div id="Title">
+      			<h1 class="header1">Good Boys Inc.</h1>
       			<p class="rp1"><b>Background Screening Report</b></p>
       		</div>
 
-      		<div id="ReportInfo" style="position: relative;">
+      		<div id="ReportInfo">
       			<p class="rp1" id="ReportNum">Report Number: </p>
       			<p class="rp1" id="ReportFor">Report for: </p>
       		</div>
 
       		<hr>
 
-      		<div id="ApplicantInfo" style="position: relative;">
+      		<div id="ApplicantInfo">
       			<h2 class="header2" style="text-align:center;">Applicant Information</h2>
 
       			<hr>
@@ -79,7 +78,7 @@
 
       			<hr>
 
-      			<p class="rtext  rp3" style="text-align:center;"><b>Decision Report</b></p>
+      			<p class="rtext  header3" style="text-align:center;"><b>Decision Report</b></p>
 
       			<hr>
 
@@ -129,7 +128,9 @@
 
       			<hr>
 
-      			<p class="rtext  rp3" style="text-align:center;"><b>"About Me" Insights</b></p>
+      			<p class="rtext  header3" style="text-align:center;"><b>"About Me" Insights</b></p>
+
+            <hr>
 
       			<div class="thirdCol" style="position: relative;">
       				<p class="rtext  rp3" id="Decision2"><b>Decision:</b></p>
@@ -211,18 +212,18 @@
 		}
 	</style>
 
-	
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="/js/report.js"></script>
     <script src="/reload/reload.js/"></script>
-        
+
 	<script>
 		$("h1").addClass("header1");
 		$("h2").addClass("header2");
 	</script>
 
 	<script>
-	
+
 	</script>
 	</body>
 </html>
