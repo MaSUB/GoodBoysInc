@@ -13,5 +13,78 @@
 }
 .rp1
 {
+  color:$offWhite;
   font-size: 12px;
 }
+
+#Page{
+  padding: 5%;
+  background-color: $darkestBlue;
+  width:90%;
+  display:inline-block;
+
+  hr{
+    border-color: black;
+    height: 2px;
+    background-color: black;
+  }
+
+  .header2{
+    font-size: 1.5em;
+    font-family: "Fjalla One", sans-serif;
+    color:$lightBlue;
+  }
+
+  .header3{
+    font-size: 1em;
+    color:$offWhite;
+  }
+
+  #Title{
+    position: relative;
+    text-align: center;
+    .header1{
+      color:$lightBlue;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .rp1{
+      color: $offWhite;
+      margin:0;
+    }
+  }
+
+  #ReportInfo{
+    position: relative;
+    color: $offWhite;
+  }
+
+  #ApplicantInfo{
+    position:relative;
+  }
+}
+
+.halfCol{
+			float: left;
+			width: 50%;
+		}
+		.thirdCol
+		{
+			float: left;
+			width: 33%;
+		}
+		.quarterCol
+		{
+			float: left;
+			width: 25%;
+		}
+		.valueCol
+		{
+			float: left;
+			width: 8.33%
+		}
+		.valueCol
+		{
+			float: left;
+			width: 8.33%
+		}
