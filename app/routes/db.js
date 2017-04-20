@@ -21,13 +21,10 @@ exports.handle_database = function (req, res) {
         
         connection.query("select * from ACCOUNTS",function(err,rows){
             connection.release();
-            if(!err) {
-                console.log("rows= " + rows[0].uname);
-            }else{
+            if(err) {
+               
                 console.log("error");
             }
-            
-            console.log("rows= " + rows[0].uname);
         });
 
         connection.on('error', function(err) {      
@@ -103,9 +100,9 @@ exports.set_report = function (req, res, callback) {
 
         console.log('connected as id ' + connection.threadId);
         //console.log(req.body);
-        console.log("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.body.name + "\"" + "," + 
-            "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.unmae + "\"" + "\"Report.json\");");
-            
+        console.log("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.session.uname + "\"" + "," + 
+            "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.uname + "Report.json\");");
+         /*  
         connection.query("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.body.name + "\"" + "," + 
             "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.unmae + "\"" + "\"Report.json\");",function(err,rows){
             connection.release();
@@ -116,7 +113,7 @@ exports.set_report = function (req, res, callback) {
                  callback(req, res, err);
             }
         });
-
+*/
         connection.on('error', function(err) {      
               console.log({"code" : 100, "status" : "Error in connection database"});
               return;     

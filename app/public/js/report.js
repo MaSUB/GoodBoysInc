@@ -153,7 +153,7 @@ function aboutCallBack(aboutObj){
 		document.getElementById("AddressL1").innerHTML = applicant_street_address;
 	
 	
-	//sendBody(applicant_name);
+	sendBody(applicant_name);
 	 
 }
 
@@ -220,9 +220,6 @@ function sendBody(applicant_name){
 		"body": document.getElementsByTagName("BODY")[0].outerHTML.replace(new RegExp("\"", 'g'), "*"),
 		"name": applicant_name
 	};
-	
-	console.log(bodyObj.body);
-	
 	
   	$.ajax({
 		type: 'POST',

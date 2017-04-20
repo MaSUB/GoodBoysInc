@@ -69,8 +69,8 @@ router.post('/account/getReport', function(req, res) {
 });
 
 router.post('/account/setReport', function(req, res) {
-  
- //console.log(JSON.stringify(req.body));
+
+ //console.log(req.session.uname + " " + req.session.password);  
  db.set_report(req, res, setReport_callback);
 });
 
