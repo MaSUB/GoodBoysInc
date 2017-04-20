@@ -69,7 +69,7 @@ router.post('/account/getReport', function(req, res) {
 });
 
 router.post('/account/setReport', function(req, res) {
-  console.log(req.body);
+  
  //console.log(JSON.stringify(req.body));
  db.set_report(req, res, setReport_callback);
 });

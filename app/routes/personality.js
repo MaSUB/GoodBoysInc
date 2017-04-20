@@ -112,7 +112,7 @@ router.get('/personality/about', function(req, res, next){
       
       console.log("about sent");
     }
-    res.send("done");
+    res.redirect('/report');
   });
 });
 

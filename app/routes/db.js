@@ -102,12 +102,15 @@ exports.set_report = function (req, res, callback) {
         }   
 
         console.log('connected as id ' + connection.threadId);
-        
+        //console.log(req.body);
+        console.log("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.body.name + "\"" + "," + 
+            "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.unmae + "\"" + "\"Report.json\");");
+            
         connection.query("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.body.name + "\"" + "," + 
-            "\"" + req.body.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.body.unmae + "\"" + "\"Report.json\");",function(err,rows){
+            "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.unmae + "\"" + "\"Report.json\");",function(err,rows){
             connection.release();
-            if(!err) {
-                console.log("error");    
+            if(err) {
+                console.log("MySQL error");    
             } else{
                 
                  callback(req, res, err);
