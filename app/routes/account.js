@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var jsonfile = require("jsonfile");
+var fs = require("fs");
 var db = require("./db.js");
 
 function getReport_callback(req, res, err){
@@ -70,7 +71,23 @@ router.post('/account/getReport', function(req, res) {
 
 router.post('/account/setReport', function(req, res) {
 
- //console.log(req.session.uname + " " + req.session.password);  
+  //var file = './../GoodBoysInc/app/data/aboutFeed.json';
+  var file = '/home/ubuntu/workspace/app/userData/' + req.session.uname + 'Report.json';
+  
+  /* create new file */
+  fs.writeFile(file, req.body, (err) => {
+    if (err) throw err;
+
+    console.log("file: " + file + " was succesfully saved!");
+  }); 
+
+  
+  /* Write obj to file */
+  jsonfile.writeFile(file, req.body, function(err){
+     if(err){
+      console.error(err);
+     }
+  });
  db.set_report(req, res, setReport_callback);
 });
 

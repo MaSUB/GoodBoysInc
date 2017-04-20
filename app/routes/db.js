@@ -102,9 +102,9 @@ exports.set_report = function (req, res, callback) {
         //console.log(req.body);
         console.log("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.session.uname + "\"" + "," + 
             "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.uname + "Report.json\");");
-         /*  
-        connection.query("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.body.name + "\"" + "," + 
-            "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.unmae + "\"" + "\"Report.json\");",function(err,rows){
+          
+        connection.query("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.session.uname + "\"" + "," + 
+            "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.uname + "Report.json\");",function(err,rows){
             connection.release();
             if(err) {
                 console.log("MySQL error");    
@@ -113,7 +113,7 @@ exports.set_report = function (req, res, callback) {
                  callback(req, res, err);
             }
         });
-*/
+
         connection.on('error', function(err) {      
               console.log({"code" : 100, "status" : "Error in connection database"});
               return;     
