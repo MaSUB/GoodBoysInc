@@ -13,6 +13,11 @@ function loginCallback(req, res, err, returnValue){
       
       // have them try again if its anyother error
       res.redirect('/login');
+    }else if(req.session.type == "A"){
+     
+       // if Admin send to admin page
+       res.redirect('/admin')
+      
     }else{
       
       // Load account page if found in DB

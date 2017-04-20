@@ -40,6 +40,8 @@ exports.handle_database = function (req, res) {
  * check_login  
  * Looks up login in DB 
  * if no login sends to /twitter to create report and entry in db 
+ * if admin sends to /admin to look at employee pages 
+ *
  *
  */   
 exports.check_login = function (loginCallback, req, res, uname, password) {
@@ -125,8 +127,8 @@ exports.set_report = function (req, res, callback) {
  * 
  *
  * get_report 
- * For use when employee is trying to get accounts 
- * also for use when another person is trying ot view their account
+ * also for use when another person is trying to view their account
+ *
  *
  */
 exports.get_report = function (req, res, callback) {
@@ -143,7 +145,7 @@ exports.get_report = function (req, res, callback) {
             connection.release();
             if(err) {
                 console.log("error");
-                 callback(req, res, err);
+                callback(req, res, err);
             }else{ 
             
                 // change if we get match 
@@ -171,3 +173,38 @@ exports.get_report = function (req, res, callback) {
   });
 }
 
+/*
+ * 
+ *
+ * get_table
+ * For use when employee is trying to get accounts 
+ * also for use when another person is trying to view their account
+ *
+ */
+exports.get_table = function (req, res, callback) {
+    
+    pool.getConnection(function(err,connection){
+        if (err) {
+          console.log("code: 100, status : Error in connection database");
+          return;
+        }   
+
+        console.log('connected as id ' + connection.threadId);
+        
+        connection.query("select * from ACCOUNTS",function(err,rows){
+            connection.release();
+            if(err) {
+                console.log("error");
+                callback(req, res, err);
+            }else{ 
+            
+               callback(req, res, err, rows);
+            }
+        });
+
+        connection.on('error', function(err) {      
+              console.log({"code" : 100, "status" : "Error in connection database"});
+              return;     
+        });
+  });
+}

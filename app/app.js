@@ -30,6 +30,7 @@ app.use(require('./routes/information'));
 app.use(require('./routes/report'));
 app.use(require('./routes/login'));
 app.use(require('./routes/account'));
+app.use(require('./routes/admin'));
 
 
 

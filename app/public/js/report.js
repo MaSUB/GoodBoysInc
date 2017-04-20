@@ -44,9 +44,28 @@ function twitterCallBack(twitObj){												//parsing for twitter fields: Agre
 	var openness_value = ((twitObj.personality[0].raw_score)*100);				//openness out of 100
 	var openness_report = openness_value.toPrecision(4);
 	document.getElementById("OpennessT").innerHTML = openness_report + " %";
-	openness+=openness_report;
+	openness+=openness_report
+	
+	calculation.agree += agreeableness_report;
+	calculation.consc += 
+	calculation.extra +=
+	calculation.neuro +=
+	calculation.open +=
+	calculation.count +=
+	
 
 }
+function results(){
+	this.agree;
+	this.consc;
+	this.extra;
+	this.neuro;
+	this.open;
+	this.count;
+}
+	
+var calculation = new results;
+
 
 function faceBookCallBack(faceObj){			//parsing for facebook fields, Agreeableness [3], Conscientiousness[1], Extraversion[2], Neuroticism[4], Openness[0]
 
@@ -151,7 +170,6 @@ function aboutCallBack(aboutObj){
 		document.getElementById("ApplicantTwitName").innerHTML = applicant_tw;
 	var applicant_street_address = aboutObj.about[6].address1 + " " + aboutObj.about[7].address2;
 		document.getElementById("AddressL1").innerHTML = applicant_street_address;
-	
 	
 	sendBody(applicant_name);
 	 
