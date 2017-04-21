@@ -10,7 +10,8 @@ function getReport_callback(req, res, err){
     
     res.send("server side error");
   }else if(req.session.report != null){
-    
+  
+  console.log("savign to session == bad idea");
    var reportBody = require("./../userData/" + req.session.report);
    res.send(JSON.stringify(reportBody));
     

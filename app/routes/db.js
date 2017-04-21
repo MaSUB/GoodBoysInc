@@ -62,13 +62,15 @@ exports.check_login = function (loginCallback, req, res, uname, password) {
             
             req.session.type = null;
             
+            var noMatch = 1;
             for(var i in rows){
-                if(rows[i].uname == uname && rows[i].password == password){
+                if(rows[i].uname == uname && rows[i].password == password && noMatch == 1){
                     req.session.uname = rows[i].uname;
                     req.session.password = rows[i].password;
                     req.session.type = rows[i].type; 
                     req.session.loggedin = 1;
                     loginCallback(req, res, err, rows[i].type);
+                    noMatch = 0;
                 }
             }
             
@@ -127,7 +129,7 @@ exports.set_report = function (req, res, callback) {
  * 
  *
  * get_report 
- * also for use when another person is trying to view their account
+ * for use when another person is trying to view their account
  *
  *
  */
@@ -143,22 +145,48 @@ exports.get_report = function (req, res, callback) {
         
         connection.query("select * from ACCOUNTS",function(err,rows){
             connection.release();
+            
+            console.log(req.body);
             if(err) {
                 console.log("error");
                 callback(req, res, err);
-            }else{ 
-            
-                // change if we get match 
+                
+            }else if(req.body.stuff == "adminCall"){
+                
+               // if its an adminCall we want to use body credentials     
+               // change if we get match 
                 var noMatch = 1;
+                console.log("in ele if db");
                 for(var i in rows){
                     
-                    if(rows[i].uname == req.session.uname && rows[i].password == req.session.password){
+                    if(rows[i].uname == req.body.uname && rows[i].password == req.body.password && noMatch == 1){
                         
                         req.session.report = rows[i].reportpath;
                         noMatch = 0;
                         callback(req, res, err);
                     }
                 }
+                
+                if(noMatch == 1){
+                        console.log("No match for a report in DB");
+                        callback(req, res, err);
+                }
+                
+            }else{ 
+            
+                console.log("in else DB")
+                // change if we get match 
+                var noMatch = 1;
+                for(var i in rows){
+                    
+                    if(rows[i].uname == req.session.uname && rows[i].password == req.session.password && noMatch == 1){
+                        
+                        req.session.report = rows[i].reportpath;
+                        noMatch = 0;
+                        callback(req, res, err);
+                    }
+                }
+                
                 if(noMatch == 1){
                         console.log("No match for a report in DB");
                         callback(req, res, err);

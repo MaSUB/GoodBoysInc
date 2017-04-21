@@ -183,7 +183,6 @@ function calculations(){
 	sendBody("zach");
 }
 
-
 function getTwitterObj(callback){
   	var obj;
   	
