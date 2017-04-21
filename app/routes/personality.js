@@ -80,8 +80,7 @@ router.get('/personality/about', function(req, res, next){
 
   //save about before it goes to watson
   var aboutObj = require('./../data/aboutFeed.json').about;
-  console.log("personality" + JSON.stringify(aboutObj));
-  
+
   var params = {
 
     // Get the content items from the JSON file.
@@ -100,7 +99,7 @@ router.get('/personality/about', function(req, res, next){
     else{
       
       response.about = aboutObj;
-      console.log(JSON.stringify(response, null, 2));
+      //console.log(JSON.stringify(response, null, 2));
       
       /* write out to file */
       //var file = './../GoodBoysInc/app/data/aboutFeed.json';
@@ -112,7 +111,7 @@ router.get('/personality/about', function(req, res, next){
       
       console.log("about sent");
     }
-    res.send("done");
+    res.redirect('/report');
   });
 });
 

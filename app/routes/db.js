@@ -21,13 +21,10 @@ exports.handle_database = function (req, res) {
         
         connection.query("select * from ACCOUNTS",function(err,rows){
             connection.release();
-            if(!err) {
-                console.log("rows= " + rows[0].uname);
-            }else{
+            if(err) {
+               
                 console.log("error");
             }
-            
-            console.log("rows= " + rows[0].uname);
         });
 
         connection.on('error', function(err) {      
@@ -36,7 +33,17 @@ exports.handle_database = function (req, res) {
         });
   });
 }
-    
+
+/*
+ * 
+ *
+ * check_login  
+ * Looks up login in DB 
+ * if no login sends to /twitter to create report and entry in db 
+ * if admin sends to /admin to look at employee pages 
+ *
+ *
+ */   
 exports.check_login = function (loginCallback, req, res, uname, password) {
     
     pool.getConnection(function(err,connection){
@@ -57,8 +64,10 @@ exports.check_login = function (loginCallback, req, res, uname, password) {
             
             for(var i in rows){
                 if(rows[i].uname == uname && rows[i].password == password){
-                    //*console.log(rows[i].type);
+                    req.session.uname = rows[i].uname;
+                    req.session.password = rows[i].password;
                     req.session.type = rows[i].type; 
+                    req.session.loggedin = 1;
                     loginCallback(req, res, err, rows[i].type);
                 }
             }
@@ -75,7 +84,54 @@ exports.check_login = function (loginCallback, req, res, uname, password) {
   });
 }
 
-exports.set_report = function () {
+/*
+ * 
+ *
+ * set_report 
+ * For use when person is logining in for the first time 
+ *
+ *
+ */
+exports.set_report = function (req, res, callback) {
+    
+    pool.getConnection(function(err,connection){
+        if (err) {
+          console.log("code: 100, status : Error in connection database");
+          return;
+        }   
+
+        console.log('connected as id ' + connection.threadId);
+        //console.log(req.body);
+        console.log("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.session.uname + "\"" + "," + 
+            "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.uname + "Report.json\");");
+          
+        connection.query("INSERT INTO ACCOUNTS (uname, password, type, reportpath) VALUES ( \""  + req.session.uname + "\"" + "," + 
+            "\"" + req.session.password +  "\"" + "," + " \"E\" " + "," + "\"" + req.session.uname + "Report.json\");",function(err,rows){
+            connection.release();
+            if(err) {
+                console.log("MySQL error");    
+            } else{
+                
+                 callback(req, res, err);
+            }
+        });
+
+        connection.on('error', function(err) {      
+              console.log({"code" : 100, "status" : "Error in connection database"});
+              return;     
+        });
+  });
+}
+
+/*
+ * 
+ *
+ * get_report 
+ * also for use when another person is trying to view their account
+ *
+ *
+ */
+exports.get_report = function (req, res, callback) {
     
     pool.getConnection(function(err,connection){
         if (err) {
@@ -87,11 +143,27 @@ exports.set_report = function () {
         
         connection.query("select * from ACCOUNTS",function(err,rows){
             connection.release();
-            if(!err) {
-                console.log("error");    
-            } 
+            if(err) {
+                console.log("error");
+                callback(req, res, err);
+            }else{ 
             
-            console.log("rows= " + rows[0].uname);
+                // change if we get match 
+                var noMatch = 1;
+                for(var i in rows){
+                    
+                    if(rows[i].uname == req.session.uname && rows[i].password == req.session.password){
+                        
+                        req.session.report = rows[i].reportpath;
+                        noMatch = 0;
+                        callback(req, res, err);
+                    }
+                }
+                if(noMatch == 1){
+                        console.log("No match for a report in DB");
+                        callback(req, res, err);
+                }
+            }
         });
 
         connection.on('error', function(err) {      
@@ -101,7 +173,15 @@ exports.set_report = function () {
   });
 }
 
-exports.get_report = function () {
+/*
+ * 
+ *
+ * get_table
+ * For use when employee is trying to get accounts 
+ * also for use when another person is trying to view their account
+ *
+ */
+exports.get_table = function (req, res, callback) {
     
     pool.getConnection(function(err,connection){
         if (err) {
@@ -113,11 +193,13 @@ exports.get_report = function () {
         
         connection.query("select * from ACCOUNTS",function(err,rows){
             connection.release();
-            if(!err) {
-                console.log("error");    
-            } 
+            if(err) {
+                console.log("error");
+                callback(req, res, err, rows);
+            }else{ 
             
-            console.log("rows= " + rows[0].uname);
+               callback(req, res, err, rows);
+            }
         });
 
         connection.on('error', function(err) {      
@@ -126,4 +208,3 @@ exports.get_report = function () {
         });
   });
 }
-

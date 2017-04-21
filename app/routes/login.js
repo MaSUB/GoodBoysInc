@@ -4,10 +4,23 @@ var db = require("./db.js");
 
 function loginCallback(req, res, err, returnValue){
     
-    if(err){
-      console.log("in dis");
+    if(err == "No match in DB"){
+      
+      //send to signUp to make new report if no match
+      console.log("Making new report");
+      res.redirect('/signup');
+    }else if(err){
+      
+      // have them try again if its anyother error
       res.redirect('/login');
+    }else if(req.session.type == "A"){
+     
+       // if Admin send to admin page
+       res.redirect('/admin')
+      
     }else{
+      
+      // Load account page if found in DB
       console.log(returnValue);
       res.redirect('/account');
     }
@@ -15,25 +28,50 @@ function loginCallback(req, res, err, returnValue){
 
 router.get('/login', function(req, res) {
   
-  res.render('login', {
-
-    pageTitle:'Login',
-    pageID: 'login'
-  });
-});
-
-router.get('/login/gateway', function(req, res) {
-  
-  console.log(req.session.uname + " " + req.session.password);
-  //check if user is already loged in
-  if(!(req.session.uname && req.session.password)){
-     
-     res.redirect("https://goodboysinc-mws5966.c9users.io/login");
+  console.log("logged in " + req.session.loggedin);
+  if(req.session.loggedin == 1){
+    
+   res.redirect('/account');
   }else{
-    res.redirect("https://goodboysinc-mws5966.c9users.io/account")
+    
+     res.render('login', {
+  
+      pageTitle:'Login',
+      pageID: 'login'
+    });
   }
 });
 
+router.get('/signup', function(req, res) {
+  
+  console.log("logged in " + req.session.loggedin);
+  if(req.session.loggedin == 1){
+    
+   res.redirect('/account');
+  }else{
+    
+     res.render('signUp', {
+  
+      pageTitle:'signUp',
+      pageID: 'signUp'
+    });
+  }
+});
+
+router.post('/signup/first', function(req, res) {
+  
+  console.log("logged in " + req.session.loggedin);
+  if(req.session.loggedin == 1){
+    
+   res.redirect('/account');
+  }else{
+    
+    // set session variables then pass to twitter
+    req.session.uname = req.body.uname;
+    req.session.password = req.body.psw;
+    res.redirect('/twitter');
+  }
+});
 
 router.post('/login/confirm', function(req, res) {
 
