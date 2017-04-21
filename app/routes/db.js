@@ -195,7 +195,7 @@ exports.get_table = function (req, res, callback) {
             connection.release();
             if(err) {
                 console.log("error");
-                callback(req, res, err);
+                callback(req, res, err, rows);
             }else{ 
             
                callback(req, res, err, rows);

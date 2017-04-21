@@ -74,6 +74,7 @@ router.post('/account/setReport', function(req, res) {
   //var file = './../GoodBoysInc/app/data/aboutFeed.json';
   var file = '/home/ubuntu/workspace/app/userData/' + req.session.uname + 'Report.json';
   
+  console.log("here bitch");
   /* create new file */
   fs.writeFile(file, req.body, (err) => {
     if (err) throw err;
