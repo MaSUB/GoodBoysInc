@@ -4,6 +4,8 @@
     <head>
         <title> <%= siteTitle %>--<%= pageTitle %></title>
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="/css/report.css">
+        <link href="bower_components/tabulator/tabulator.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -44,11 +46,13 @@
         </div>
 
         <div class="content-row">
-          <h2 class="content-header">Something Will go here</h2>
-          <div class="content-text-split">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
-          </div>
-          <img class='content-img-split' src="http://www.aaha.org/blog/graphics/resized/petsmatter/happy_dog_and_human_xw600_xh399.jpg" alt="doogo.jpg">
+          <h2 class="content-header">Welcom back ______ put name there</h2>
+          
+          <!-- mikes cool table -->
+          <div id="user-table"> </div>
+          
+          <!-- when user clicks on cell -->
+           <iframe style="height: 800px; width: 100%" id="viewReport"></iframe>
         </div>
       </div>
       <!--  End of content section  -->
@@ -68,6 +72,8 @@
       </div>
       <!-- End of footer section -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+        <script type="text/javascript"  src="bower_components/tabulator/tabulator.js"></script>
         <script src="/js/admin.js"></script>
         <script src="/reload/reload.js/"></script>
     </body>
