@@ -306,3 +306,23 @@ a, p{
       color: black;
     }
 }
+
+.input-row{
+  width:100%;
+  font-family: $paragraphFont;
+  input{
+    border: 1px solid $darkestBlue;
+    padding: 5px;
+  }
+
+  .input-row{
+    @media only screen and (max-width: 725px) {
+      width: 75%;
+      height: 25px;
+      margin: .5em 0;
+    }
+    width: 490px;
+    height: 25px;
+    margin: .5em 0;
+  }
+}

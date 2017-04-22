@@ -17,16 +17,16 @@
         </div>
         <div class="nav-bar">
           <div class=nav-bar-item>
-            <a href="">Home</a>
+            <a href="https://goodboysinc-mws5966.c9users.io/">Home</a>
           </div>
           <div class=nav-bar-item>
-            <a href="">Dog for you</a>
+            <a href="https://goodboysinc-mws5966.c9users.io/login">Login</a>
           </div>
           <div class=nav-bar-item>
-            <a href="">Dog Types</a>
+            <a href="https://goodboysinc-mws5966.c9users.io/account">Account</a>
           </div>
           <div class=nav-bar-item>
-            <a href="">About Us</a>
+            <a href="https://goodboysinc-mws5966.c9users.io/admin">Admin</a>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
     });
     FB.AppEvents.logPageView();
   };
-  
+
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -91,12 +91,12 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-  
+
   function userLogin(){
     FB.login(function(response) {
     }, {scope: 'user_posts'});
   }
-  
+
   function checkStatus(){
     FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
@@ -111,13 +111,13 @@
       }
      });
   }
-  
+
   var jsonObj = {
     content_Items:[]
   };
-  
+
   var wordCount = 0;
-  
+
   function getPosts(){
     FB.api(
       "/me/posts",
@@ -138,13 +138,13 @@
           nextPage = response.paging.next;
           console.log(wordCount);
           nextPageCall(nextPage);
-  
+
         } else {
           alert("error");
         }
       });
   }
-  
+
   function nextPageCall(nextPage){
     FB.api(
       nextPage,
@@ -173,18 +173,18 @@
           }else{
             callDone();
           }
-  
+
         } else {
           alert("error");
         }
       });
   }
-  
+
   function callDone(){
     console.log("done");
     //console.log(JSON.stringify(jsonObj));
     wordCount = 0;
-  
+
     //jquery
     $.ajax({
       type: 'POST',
@@ -195,15 +195,15 @@
       data: JSON.stringify(jsonObj),
       success: function(data) {
         console.log('sent');
-        
+
       }
     });
-    
+
     setTimeout(function(){
       window.location.replace("https://goodboysinc-mws5966.c9users.io/information");
     }, 1000);
     //window.location.replace("http://localhost:3000/information");
-    
+
   }
 
 </script>
