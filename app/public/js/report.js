@@ -240,7 +240,7 @@ function getAboutObj(){
 function sendBody(applicant_name){
 
 	var bodyObj = {
-		"body": document.getElementsByTagName("BODY")[0].outerHTML.replace(new RegExp("\"", 'g'), "*"),
+		"body": document.getElementById("whatIwant").outerHTML.replace(new RegExp("\"", 'g'), "*"),
 		"name": applicant_name
 	};
 	

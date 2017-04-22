@@ -14,12 +14,19 @@ function users_callback(req, res, err, rows){
 }
 
 router.get('/admin', function(req, res) {
-  //var dataFile = req.app.get('appData');
-  res.render('admin', {
+ 
+  if(req.session.type != 'A'){
+    
+    //if they aren't admin send them to the things 
+    res.send('No No No you are not logged in brah');
+  }else{
+    
+    res.render('admin', {
 
-    pageTitle:'admin',
-    pageID: 'admin'
-  });
+      pageTitle:'admin',
+      pageID: 'admin'
+    });
+  }
 });
 
 router.post('/admin/users', function(req, res){
